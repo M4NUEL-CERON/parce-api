@@ -11,6 +11,13 @@ function llamar(url) {
 test('lista recursos', () => assert.ok(llamar('/api').body.recursos.includes('/api/dichos')));
 test('ruta reescrita por vercel', () => assert.equal(llamar('/api?ruta=dichos/no-dar-papaya').body.dicho, 'No dar papaya'));
 test('busca sin tildes', () => assert.ok(llamar('/api/dichos?q=CAMARON').body.length >= 1));
+test('filtra por campo', () => {
+  const tolima = llamar('/api/platos?region=tolima').body;
+  assert.ok(tolima.length >= 2 && tolima.every((p) => p.region === 'Tolima'));
+  assert.ok(llamar('/api/platos?region=bogota').body.some((p) => p.id === 'ajiaco')); // sin tilde
+  assert.deepEqual(llamar('/api/platos?region=tolima&q=arveja').body.map((p) => p.id), ['lechona', 'tamal-tolimense']);
+  assert.deepEqual(llamar('/api/platos?region=narnia').body, []);
+});
 test('hoy, random y 404', () => {
   assert.ok(llamar('/api/dichos/hoy').body.id);
   assert.ok(llamar('/api/dichos/random').body.id);

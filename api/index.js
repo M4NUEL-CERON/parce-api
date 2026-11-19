@@ -31,8 +31,14 @@ export default function handler(req, res) {
   if (!lista) return res.status(404).json({ error: `No existe /api/${nombre}, parce` });
 
   if (!accion) {
-    const q = url.searchParams.get('q');
-    return res.status(200).json(q ? lista.filter((x) => normalizar(JSON.stringify(x)).includes(normalizar(q))) : lista);
+    let resultado = lista;
+    for (const [campo, valor] of url.searchParams) {
+      if (campo === 'ruta') continue;
+      const v = normalizar(valor);
+      // ?q= busca en todo el item; cualquier otro parámetro filtra por ese campo (ej. ?region=tolima)
+      resultado = resultado.filter((x) => normalizar(campo === 'q' ? JSON.stringify(x) : String(x[campo] ?? '')).includes(v));
+    }
+    return res.status(200).json(resultado);
   }
   if (accion === 'hoy') return res.status(200).json(delDia(lista));
   if (accion === 'random') return res.status(200).json(lista[Math.floor(Math.random() * lista.length)]);

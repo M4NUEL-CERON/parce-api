@@ -14,6 +14,7 @@ Las fotos de los platos son de Wikimedia Commons; cada plato trae su autor y lic
 | `GET /api/dichos/random` | Un dicho al azar |
 | `GET /api/dichos/:id` | Un dicho por id |
 | `GET /api/platos` | Platos típicos con foto, ingredientes y preparación (también `/hoy`, `/random`, `/:id` y `?q=`) |
+| `GET /api/<recurso>?<campo>=valor` | Filtra por cualquier campo, sin importar tildes. Ej. `/api/platos?region=tolima`. Se combina con `?q=` |
 
 ```js
 const dicho = await (await fetch('https://<tu-dominio>/api/dichos/hoy')).json();

@@ -286,7 +286,7 @@
     const endpoints = [
       ['/api', 'recursos'], ['/api/dichos/hoy', 'del día'], ['/api/dichos/random', 'al azar'],
       ['/api/dichos?q=plata', 'buscar'], ['/api/dichos/no-dar-papaya', 'por id'],
-      ['/api/platos/hoy', 'plato del día'], ['/api/platos/ajiaco', 'receta'],
+      ['/api/platos/hoy', 'plato del día'], ['/api/platos?region=tolima', 'por región'], ['/api/platos/ajiaco', 'receta'],
     ];
 
     const llenar = (el, items) => el.replaceChildren(...items.map((t) => Object.assign(document.createElement('li'), { textContent: t })));
