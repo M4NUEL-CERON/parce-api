@@ -1,0 +1,31 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync, readdirSync } from 'node:fs';
+import handler, { delDia } from './api/index.js';
+
+function llamar(url) {
+  const res = { headers: {}, setHeader(k, v) { this.headers[k] = v; }, status(c) { this.code = c; return this; }, json(b) { this.body = b; return this; } };
+  return handler({ url }, res);
+}
+
+test('lista recursos', () => assert.ok(llamar('/api').body.recursos.includes('/api/dichos')));
+test('ruta reescrita por vercel', () => assert.equal(llamar('/api?ruta=dichos/no-dar-papaya').body.dicho, 'No dar papaya'));
+test('busca sin tildes', () => assert.ok(llamar('/api/dichos?q=CAMARON').body.length >= 1));
+test('hoy, random y 404', () => {
+  assert.ok(llamar('/api/dichos/hoy').body.id);
+  assert.ok(llamar('/api/dichos/random').body.id);
+  assert.equal(llamar('/api/dichos/no-existe').code, 404);
+  assert.equal(llamar('/api/nada').code, 404);
+});
+test('delDia cambia a medianoche de Colombia', () => {
+  const l = [1, 2];
+  assert.equal(delDia(l, new Date('2026-11-19T04:59:00Z')), delDia(l, new Date('2026-11-18T12:00:00Z')));
+  assert.notEqual(delDia(l, new Date('2026-11-19T05:00:00Z')), delDia(l, new Date('2026-11-18T12:00:00Z')));
+});
+test('cada item tiene id único', () => {
+  for (const f of readdirSync('data')) {
+    const ids = JSON.parse(readFileSync(`data/${f}`, 'utf8')).map((x) => x.id);
+    assert.ok(ids.every(Boolean), `${f}: falta id`);
+    assert.equal(new Set(ids).size, ids.length, `${f}: ids repetidos`);
+  }
+});

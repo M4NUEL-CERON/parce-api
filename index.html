@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parce API · Dichos colombianos</title>
+  <meta name="description" content="API pública y gratis de dichos colombianos. Aprende a hablar como un parcero.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦜</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fff8e7; --fg: #1a1714; --muted: #6e655a; --card: #ffffff; --line: #eadfc8;
+      --amarillo: #ffcd00; --azul: #0b3d91; --rojo: #d7263d; --verde: #1f8a5b; --sobre: #ffffff;
+      --sombra: 6px 6px 0 var(--fg);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #14120f; --fg: #f6efe0; --muted: #a89f8e; --card: #1e1b17; --line: #34302a; --azul: #6c9bff; --rojo: #ff5a6e; --verde: #4cc98f; --sobre: #1a1714; }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.55 "Bricolage Grotesque", system-ui, sans-serif; overflow-x: hidden; }
+    a { color: inherit; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+    /* Franja tricolor */
+    .bandera { display: flex; height: 10px; }
+    .bandera i { flex: 2; background: var(--amarillo); } .bandera i + i { flex: 1; background: var(--azul); } .bandera i + i + i { background: var(--rojo); }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-weight: 800; }
+    nav a { text-decoration: none; margin-left: 18px; font-weight: 500; }
+    nav a:hover { text-decoration: underline wavy var(--rojo); }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; padding: 40px 0 80px; }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1; margin: 0 0 20px; letter-spacing: -.02em; }
+    h1 mark { background: var(--amarillo); color: #1a1714; padding: 0 .15em; border-radius: 8px; display: inline-block; transform: rotate(-2deg); }
+    .lead { font-size: 1.2rem; color: var(--muted); max-width: 30ch; margin: 0 0 28px; }
+    .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn { font: inherit; font-weight: 800; padding: 12px 22px; border-radius: 999px; border: 2.5px solid var(--fg); background: var(--card); color: var(--fg); cursor: pointer; text-decoration: none; box-shadow: 3px 3px 0 var(--fg); transition: transform .12s, box-shadow .12s; }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--fg); }
+    .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--fg); }
+    .btn.primario { background: var(--amarillo); color: #1a1714; }
+    .btn:focus-visible, input:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+
+    /* Tarjeta del dicho */
+    .destacado { position: relative; background: var(--card); border: 3px solid var(--fg); border-radius: 28px; padding: 36px; box-shadow: var(--sombra); transform: rotate(1.2deg); }
+    .destacado::before { content: "🦜"; position: absolute; top: -34px; right: 24px; font-size: 3.4rem; transform: rotate(12deg); }
+    .chip { display: inline-block; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; background: var(--rojo); color: var(--sobre); padding: 4px 12px; border-radius: 999px; }
+    #dicho { font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.1; font-weight: 800; margin: 16px 0 14px; }
+    #significado { font-size: 1.1rem; margin: 0 0 14px; }
+    #ejemplo { margin: 0; padding-left: 14px; border-left: 4px solid var(--amarillo); color: var(--muted); font-style: italic; }
+    .acciones { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+    .acciones .btn { padding: 9px 16px; font-size: .95rem; }
+    .entra { animation: entra .45s cubic-bezier(.2, .9, .3, 1.3); }
+    @keyframes entra { from { opacity: 0; transform: translateY(10px) scale(.97); } }
+
+    /* Cinta */
+    .cinta { background: var(--fg); color: var(--bg); padding: 14px 0; overflow: hidden; white-space: nowrap; font-weight: 800; font-size: 1.15rem; transform: rotate(-1deg); margin: 0 -20px; }
+    .cinta div { display: inline-block; animation: corre 40s linear infinite; }
+    .cinta span { margin: 0 22px; } .cinta span::after { content: "✦"; margin-left: 44px; color: var(--amarillo); }
+    @keyframes corre { to { transform: translateX(-50%); } }
+
+    /* Grid de dichos */
+    section { padding: 80px 0 0; }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin: 0 0 8px; letter-spacing: -.01em; }
+    .sub { color: var(--muted); margin: 0 0 28px; }
+    .buscar { width: 100%; max-width: 420px; font: inherit; padding: 12px 18px; border: 2.5px solid var(--fg); border-radius: 999px; background: var(--card); color: var(--fg); margin-bottom: 28px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+    .tarjeta { background: var(--card); border: 2px solid var(--line); border-radius: 20px; padding: 22px; cursor: pointer; text-align: left; font: inherit; color: inherit; transition: transform .15s, border-color .15s, box-shadow .15s; }
+    .tarjeta:hover, .tarjeta:focus-visible { transform: translateY(-4px) rotate(-.6deg); border-color: var(--fg); box-shadow: 4px 4px 0 var(--fg); outline: none; }
+    .tarjeta:nth-child(3n+1) { border-top: 6px solid var(--amarillo); }
+    .tarjeta:nth-child(3n+2) { border-top: 6px solid var(--azul); }
+    .tarjeta:nth-child(3n) { border-top: 6px solid var(--rojo); }
+    .tarjeta strong { display: block; font-size: 1.2rem; line-height: 1.2; margin-bottom: 8px; }
+    .tarjeta span { color: var(--muted); font-size: .95rem; }
+    .vacio { color: var(--muted); }
+
+    /* Devs */
+    .devs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .endpoints { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .endpoints button { width: 100%; display: flex; gap: 10px; align-items: center; font: 600 .92rem "JetBrains Mono", monospace; text-align: left; padding: 12px 16px; border-radius: 14px; border: 2px solid var(--line); background: var(--card); color: var(--fg); cursor: pointer; }
+    .endpoints button:hover, .endpoints button[aria-pressed="true"] { border-color: var(--fg); }
+    .metodo { background: var(--verde); color: var(--sobre); border-radius: 6px; padding: 2px 7px; font-size: .75rem; }
+    .endpoints small { margin-left: auto; color: var(--muted); font-family: "Bricolage Grotesque", sans-serif; font-weight: 500; }
+    .consola { background: #1a1714; color: #f6efe0; border-radius: 20px; padding: 18px 20px; font: .85rem/1.6 "JetBrains Mono", monospace; min-height: 320px; max-height: 420px; overflow: auto; border: 3px solid var(--fg); box-shadow: var(--sombra); }
+    .consola .url { color: var(--amarillo); display: block; margin-bottom: 10px; overflow-wrap: anywhere; }
+    .consola pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+    footer { padding: 80px 0 40px; text-align: center; color: var(--muted); }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 120px); background: var(--fg); color: var(--bg); padding: 12px 22px; border-radius: 999px; font-weight: 800; transition: transform .3s; z-index: 10; }
+    .toast.ver { transform: translate(-50%, 0); }
+
+    @media (max-width: 800px) {
+      .hero, .devs { grid-template-columns: 1fr; gap: 40px; }
+      .hero { padding-top: 16px; }
+      .destacado { transform: none; padding: 28px 22px; }
+      nav .links { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="bandera" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <div class="wrap">
+    <nav>
+      <span>🦜 Parce API</span>
+      <span class="links"><a href="#dichos">Dichos</a><a href="#devs">Para devs</a><a href="https://github.com/M4NUEL-CERON/parce-api">GitHub</a></span>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <h1>Hable como un <mark>parcero</mark>.</h1>
+        <p class="lead">Dichos colombianos con su significado y un ejemplo de cómo se usan. Gratis y abierto, como una API.</p>
+        <div class="ctas">
+          <a class="btn primario" href="#dichos">Ver todos los dichos</a>
+          <a class="btn" href="#devs">Usar la API</a>
+        </div>
+      </div>
+
+      <article class="destacado" aria-live="polite">
+        <span class="chip" id="titulo">Dicho del día</span>
+        <div id="contenido">
+          <div id="dicho">Cargando…</div>
+          <p id="significado"></p>
+          <p id="ejemplo"></p>
+        </div>
+        <div class="acciones">
+          <button class="btn primario" id="otro">Otro dicho 🎲</button>
+          <button class="btn" id="copiar">Copiar 📋</button>
+          <button class="btn" id="compartir">Compartir 📲</button>
+        </div>
+      </article>
+    </header>
+  </div>
+
+  <div class="cinta" aria-hidden="true"><div id="cinta"></div></div>
+
+  <div class="wrap">
+    <section id="dichos">
+      <h2>Todos los dichos</h2>
+      <p class="sub"><span id="total">…</span> dichos, y cada día llegan más. Toque uno para verlo en grande.</p>
+      <input class="buscar" id="buscar" type="search" placeholder="Buscar: papaya, plata, rumba…" aria-label="Buscar dichos">
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="devs">
+      <h2>Para devs 👩‍💻</h2>
+      <p class="sub">Sin llave, sin registro, con CORS abierto. Toque un endpoint y pruébelo de una.</p>
+      <div class="devs">
+        <ul class="endpoints" id="endpoints"></ul>
+        <div class="consola" aria-live="polite"><span class="url" id="url"></span><pre id="respuesta"></pre></div>
+      </div>
+    </section>
+
+    <footer>Hecho con ☕ colombiano · <a href="https://github.com/M4NUEL-CERON/parce-api">Código en GitHub</a></footer>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const sinTildes = (s) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+    let todos = [], actual = null;
+
+    function toast(msg) { $('toast').textContent = msg; $('toast').classList.add('ver'); setTimeout(() => $('toast').classList.remove('ver'), 1800); }
+
+    function mostrar(d, titulo) {
+      actual = d;
+      $('titulo').textContent = titulo;
+      $('dicho').textContent = d.dicho;
+      $('significado').textContent = d.significado;
+      $('ejemplo').textContent = '“' + d.ejemplo + '”';
+      const c = $('contenido'); c.classList.remove('entra'); void c.offsetWidth; c.classList.add('entra');
+    }
+
+    function pintarGrid(q = '') {
+      const lista = todos.filter((d) => sinTildes(d.dicho + ' ' + d.significado).includes(sinTildes(q)));
+      $('grid').replaceChildren(...lista.map((d) => {
+        const b = document.createElement('button');
+        b.className = 'tarjeta';
+        b.innerHTML = '<strong></strong><span></span>';
+        b.firstChild.textContent = d.dicho;
+        b.lastChild.textContent = d.significado;
+        b.onclick = () => { mostrar(d, 'Dicho'); scrollTo({ top: 0, behavior: 'smooth' }); };
+        return b;
+      }));
+      if (!lista.length) $('grid').innerHTML = '<p class="vacio">Nada por aquí, parce. Pruebe con otra palabra.</p>';
+    }
+
+    const texto = () => `"${actual.dicho}": ${actual.significado}`;
+    $('otro').onclick = () => {
+      const otros = todos.filter((d) => d !== actual);
+      mostrar(otros[Math.floor(Math.random() * otros.length)], 'Dicho al azar');
+    };
+    $('copiar').onclick = async () => { try { await navigator.clipboard.writeText(texto()); toast('¡Copiado, parce! ✅'); } catch { toast('No se pudo copiar'); } };
+    $('compartir').onclick = async () => {
+      if (navigator.share) { try { await navigator.share({ title: actual.dicho, text: texto(), url: location.href }); } catch {} }
+      else $('copiar').click();
+    };
+    $('buscar').oninput = (e) => pintarGrid(e.target.value);
+
+    const endpoints = [
+      ['/api', 'recursos'], ['/api/dichos/hoy', 'del día'], ['/api/dichos/random', 'al azar'],
+      ['/api/dichos?q=plata', 'buscar'], ['/api/dichos/no-dar-papaya', 'por id'],
+    ];
+    $('endpoints').replaceChildren(...endpoints.map(([ruta, nota]) => {
+      const li = document.createElement('li'), b = document.createElement('button');
+      b.innerHTML = '<span class="metodo">GET</span><span></span><small></small>';
+      b.children[1].textContent = ruta; b.children[2].textContent = nota;
+      b.onclick = () => probar(ruta, b);
+      li.append(b); return li;
+    }));
+    async function probar(ruta, boton) {
+      document.querySelectorAll('.endpoints button').forEach((x) => x.setAttribute('aria-pressed', x === boton));
+      $('url').textContent = '$ curl ' + location.origin + ruta;
+      try { $('respuesta').textContent = JSON.stringify(await (await fetch(ruta)).json(), null, 2); }
+      catch { $('respuesta').textContent = 'Uy, falló la petición.'; }
+    }
+
+    (async () => {
+      try {
+        const [hoy, lista] = await Promise.all(['/api/dichos/hoy', '/api/dichos'].map((r) => fetch(r).then((x) => x.json())));
+        todos = lista;
+        mostrar(hoy, 'Dicho del día');
+        $('total').textContent = lista.length;
+        const frases = lista.map((d) => `<span>${d.dicho.replace(/[<&]/g, '')}</span>`).join('');
+        $('cinta').innerHTML = frases + frases; // duplicado para que el loop no tenga salto
+        pintarGrid();
+        probar('/api/dichos/hoy', document.querySelector('.endpoints button:nth-child(1)'));
+      } catch { $('dicho').textContent = 'Uy, no cargó. Recargue la página.'; }
+    })();
+  </script>
+</body>
+</html>

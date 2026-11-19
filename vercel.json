@@ -1,0 +1,4 @@
+{
+  "rewrites": [{ "source": "/api/:ruta*", "destination": "/api?ruta=:ruta*" }],
+  "functions": { "api/index.js": { "includeFiles": "data/**" } }
+}
