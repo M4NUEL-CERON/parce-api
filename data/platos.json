@@ -1,0 +1,382 @@
+[
+  {
+    "id": "bandeja-paisa",
+    "nombre": "Bandeja paisa",
+    "region": "Antioquia",
+    "descripcion": "El plato más contundente de Colombia: frijoles, arroz, carne molida, chicharrón, chorizo, huevo, maduro, aguacate y arepa, todo en una sola bandeja.",
+    "ingredientes": [
+      "500 g de frijoles rojos remojados la noche anterior",
+      "300 g de carne molida",
+      "4 tiras de chicharrón (tocino de cerdo con piel)",
+      "4 chorizos antioqueños",
+      "2 tazas de arroz blanco",
+      "4 huevos",
+      "2 plátanos maduros",
+      "2 aguacates",
+      "4 arepas antioqueñas",
+      "Hogao: tomate, cebolla larga y ajo"
+    ],
+    "preparacion": [
+      "Cocina los frijoles con zanahoria y un trozo de plátano verde hasta que ablanden, y agrégales hogao.",
+      "Prepara el arroz blanco.",
+      "Sofríe la carne molida con hogao y sal hasta que quede seca y suelta.",
+      "Fríe el chicharrón hasta que esté crocante y asa los chorizos.",
+      "Fríe las tajadas de maduro y los huevos.",
+      "Sirve todo en una bandeja grande con aguacate y arepa."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Bandepaisabog.JPG/960px-Bandepaisabog.JPG",
+      "autor": "Jdvillalobos",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Bandepaisabog.JPG"
+    }
+  },
+  {
+    "id": "ajiaco",
+    "nombre": "Ajiaco santafereño",
+    "region": "Bogotá",
+    "descripcion": "Sopa espesa de tres papas, pollo y mazorca, perfumada con guascas. Se sirve con crema de leche, alcaparras y aguacate.",
+    "ingredientes": [
+      "4 pechugas de pollo",
+      "1 kg de papa sabanera",
+      "500 g de papa pastusa",
+      "500 g de papa criolla",
+      "3 mazorcas en trozos",
+      "Un manojo de guascas",
+      "Cebolla larga y ajo",
+      "Crema de leche, alcaparras y aguacate para servir"
+    ],
+    "preparacion": [
+      "Cocina el pollo con cebolla larga, ajo y la mazorca unos 40 minutos. Saca el pollo y desmechalo.",
+      "Agrega la papa sabanera y la pastusa en rodajas y cocina hasta que se deshagan y espesen la sopa.",
+      "Añade la papa criolla y cocina 20 minutos más.",
+      "Agrega las guascas en los últimos 10 minutos y devuelve el pollo.",
+      "Sirve con crema de leche, alcaparras, aguacate y arroz al lado."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Ajiaco-santafere%C3%B1o.colombia.jpg/960px-Ajiaco-santafere%C3%B1o.colombia.jpg",
+      "autor": "jeison Rodriguez Sandoval",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Ajiaco-santafere%C3%B1o.colombia.jpg"
+    }
+  },
+  {
+    "id": "sancocho-de-gallina",
+    "nombre": "Sancocho de gallina",
+    "region": "Todo el país (famoso en el Valle del Cauca)",
+    "descripcion": "La sopa del paseo de olla: gallina criolla con plátano, yuca, papa y mazorca, cocinada a leña junto al río.",
+    "ingredientes": [
+      "1 gallina criolla en presas",
+      "2 plátanos verdes",
+      "500 g de yuca",
+      "4 papas",
+      "2 mazorcas en trozos",
+      "Cebolla larga, ajo y comino",
+      "Cilantro picado"
+    ],
+    "preparacion": [
+      "Cocina la gallina con cebolla, ajo y comino cerca de una hora, porque es carne dura.",
+      "Agrega el plátano verde partido con la mano y la mazorca.",
+      "Añade la yuca y la papa y cocina hasta que ablanden.",
+      "Ajusta la sal y echa el cilantro al final.",
+      "Sirve con arroz, aguacate y ají."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Sancocho_de_gallina_yopal.jpg/960px-Sancocho_de_gallina_yopal.jpg",
+      "autor": "Daniestrella123",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Sancocho_de_gallina_yopal.jpg"
+    }
+  },
+  {
+    "id": "lechona",
+    "nombre": "Lechona tolimense",
+    "region": "Tolima",
+    "descripcion": "Cerdo entero relleno de su propia carne con arveja amarilla, horneado durante horas hasta que el cuero queda tostado y crocante.",
+    "ingredientes": [
+      "Cerdo entero, o piel y carne de cerdo para una versión casera",
+      "1 kg de arveja amarilla seca",
+      "Cebolla larga y ajo",
+      "Comino y sal",
+      "Naranja agria"
+    ],
+    "preparacion": [
+      "Remoja la arveja la noche anterior y cocínala hasta que esté blanda.",
+      "Adoba la carne de cerdo en trozos con cebolla, ajo, comino, sal y naranja agria por varias horas.",
+      "Mezcla la carne con la arveja.",
+      "Rellena el cerdo, o forra un molde con la piel, y cierra cosiendo.",
+      "Hornea a fuego bajo de 8 a 10 horas hasta que la piel quede crocante.",
+      "Sirve con arepa y un pedazo de cuero tostado."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Lechona_en_Honda.jpg/960px-Lechona_en_Honda.jpg",
+      "autor": "Remux",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Lechona_en_Honda.jpg"
+    }
+  },
+  {
+    "id": "tamal-tolimense",
+    "nombre": "Tamal tolimense",
+    "region": "Tolima",
+    "descripcion": "Masa de maíz rellena de pollo, cerdo, huevo y verduras, envuelta en hoja de plátano. Desayuno de domingo con chocolate.",
+    "ingredientes": [
+      "500 g de harina de maíz",
+      "Presas de pollo",
+      "Costilla y tocino de cerdo",
+      "2 huevos cocidos",
+      "Zanahoria, papa y arveja",
+      "Arroz cocido",
+      "Hojas de plátano",
+      "Hogao y pita para amarrar"
+    ],
+    "preparacion": [
+      "Adoba las carnes con hogao y sal.",
+      "Prepara la masa con la harina, caldo y hogao hasta que quede suave.",
+      "Sobre una hoja de plátano soasada pon masa, arroz, carnes, huevo, papa, zanahoria y arveja.",
+      "Envuelve bien y amarra con pita.",
+      "Cocina en agua de 3 a 4 horas.",
+      "Sirve con chocolate caliente y arepa."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Tamal_tolimense_abierto.jpg/960px-Tamal_tolimense_abierto.jpg",
+      "autor": "JOAN",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Tamal_tolimense_abierto.jpg"
+    }
+  },
+  {
+    "id": "arepa-de-huevo",
+    "nombre": "Arepa de huevo",
+    "region": "Costa Caribe",
+    "descripcion": "Arepa de maíz frita dos veces con un huevo entero adentro. La reina de los fritos en Cartagena y Barranquilla.",
+    "ingredientes": [
+      "2 tazas de harina de maíz amarillo precocida",
+      "Agua tibia y sal",
+      "6 huevos",
+      "Aceite para freír"
+    ],
+    "preparacion": [
+      "Amasa la harina con agua tibia y sal y forma discos delgados.",
+      "Fríe los discos en aceite caliente hasta que se inflen.",
+      "Abre un bolsillo por el borde con un cuchillo.",
+      "Mete un huevo crudo dentro.",
+      "Sella con un poco de masa y vuelve a freír hasta que el huevo se cocine."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Arepa_de_huevo_por_dentro.jpg/960px-Arepa_de_huevo_por_dentro.jpg",
+      "autor": "Jdvillalobos",
+      "licencia": "CC BY 3.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Arepa_de_huevo_por_dentro.jpg"
+    }
+  },
+  {
+    "id": "mote-de-queso",
+    "nombre": "Mote de queso",
+    "region": "Córdoba y Sucre",
+    "descripcion": "Sopa espesa de ñame con queso costeño y sofrito. El caldo se espesa solo con el almidón del ñame.",
+    "ingredientes": [
+      "1 kg de ñame",
+      "300 g de queso costeño duro",
+      "Cebolla, ajo y ají dulce",
+      "Limón",
+      "Sal"
+    ],
+    "preparacion": [
+      "Cocina el ñame pelado en cubos hasta que se ablande y espese el caldo.",
+      "Prepara un sofrito de cebolla, ajo y ají dulce y agrégalo a la olla.",
+      "Echa el queso en cubos al final y retira del fuego para que no se derrita del todo.",
+      "Termina con unas gotas de limón y sirve con arroz blanco y aguacate."
+    ],
+    "imagen": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Motequeso.jpg",
+      "autor": "Jdvillalobos",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Motequeso.jpg"
+    }
+  },
+  {
+    "id": "changua",
+    "nombre": "Changua",
+    "region": "Boyacá y Cundinamarca",
+    "descripcion": "Caldo de leche con huevos pochados, cebolla y cilantro. El desayuno del altiplano para el frío y el guayabo.",
+    "ingredientes": [
+      "2 tazas de leche",
+      "2 tazas de agua",
+      "4 huevos",
+      "Cebolla larga",
+      "Cilantro",
+      "Sal",
+      "Calado o pan duro"
+    ],
+    "preparacion": [
+      "Hierve el agua y la leche con la cebolla larga y sal.",
+      "Baja el fuego y quiebra los huevos uno por uno. Cocina 3 minutos sin revolver.",
+      "Retira la cebolla y agrega cilantro picado.",
+      "Sirve con calado o pan dentro del plato."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Changua_1.jpg/960px-Changua_1.jpg",
+      "autor": "Caldobasico",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Changua_1.jpg"
+    }
+  },
+  {
+    "id": "posta-negra",
+    "nombre": "Posta negra cartagenera",
+    "region": "Cartagena",
+    "descripcion": "Carne de res cocinada lento en panela hasta quedar oscura, dulce y brillante.",
+    "ingredientes": [
+      "1 kg de muchacho de res",
+      "1 panela rallada",
+      "Cebolla y ajo",
+      "Salsa inglesa y vinagre",
+      "Clavos de olor y pimienta"
+    ],
+    "preparacion": [
+      "Adoba la carne con ajo, cebolla, salsa inglesa y vinagre, mejor de un día para otro.",
+      "Dórala en aceite por todos lados.",
+      "Derrite la panela con un poco de agua hasta que oscurezca y baña la carne.",
+      "Cocina tapado a fuego bajo de 1,5 a 2 horas, volteando, hasta que la salsa espese y quede negra.",
+      "Rebana y sirve con arroz con coco y tajadas."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Posta_cartagenera_o_negra.jpg/960px-Posta_cartagenera_o_negra.jpg",
+      "autor": "Xemenendura",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Posta_cartagenera_o_negra.jpg"
+    }
+  },
+  {
+    "id": "arroz-con-coco",
+    "nombre": "Arroz con coco",
+    "region": "Costa Caribe",
+    "descripcion": "Arroz cocinado en leche de coco tostada hasta quedar dorado y dulzón. El acompañante del pescado frito.",
+    "ingredientes": [
+      "1 coco",
+      "2 tazas de arroz",
+      "Agua",
+      "Azúcar o panela",
+      "Sal",
+      "Uvas pasas (opcional)"
+    ],
+    "preparacion": [
+      "Ralla el coco, mézclalo con agua caliente y cuela para sacar la leche.",
+      "Cocina la leche a fuego medio hasta que se separe el aceite y quede el coco tostado oscuro.",
+      "Agrega agua, sal, azúcar y el arroz.",
+      "Cocina destapado hasta secar y luego tapa a fuego bajo 20 minutos."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Arroz_con_coco.JPG/960px-Arroz_con_coco.JPG",
+      "autor": "Adriblanco",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Arroz_con_coco.JPG"
+    }
+  },
+  {
+    "id": "mute-santandereano",
+    "nombre": "Mute santandereano",
+    "region": "Santander",
+    "descripcion": "Sopa espesa de maíz pelado, garbanzo, callo y costilla, con muchas verduras. Plato de domingo en Bucaramanga.",
+    "ingredientes": [
+      "500 g de maíz pelado",
+      "250 g de garbanzo",
+      "500 g de callo (mondongo)",
+      "500 g de costilla de cerdo",
+      "Papa, ahuyama y arveja",
+      "Cebolla, ajo y comino",
+      "Cilantro"
+    ],
+    "preparacion": [
+      "Remoja el maíz y el garbanzo la noche anterior y cocínalos hasta ablandar.",
+      "Cocina el callo y la costilla con cebolla, ajo y comino.",
+      "Une todo y agrega papa, ahuyama y arveja.",
+      "Cocina hasta que espese y echa cilantro al final."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Plato_de_Mute.jpg/960px-Plato_de_Mute.jpg",
+      "autor": "Mizotha",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Plato_de_Mute.jpg"
+    }
+  },
+  {
+    "id": "patacones",
+    "nombre": "Patacones",
+    "region": "Costa Caribe y Pacífico",
+    "descripcion": "Plátano verde frito, aplastado y vuelto a freír hasta quedar crocante. Va con todo.",
+    "ingredientes": [
+      "3 plátanos verdes",
+      "Aceite para freír",
+      "Sal",
+      "Agua con ajo (opcional)"
+    ],
+    "preparacion": [
+      "Pela los plátanos y córtalos en trozos de unos 4 cm.",
+      "Fríelos a fuego medio 5 minutos hasta dorar un poco.",
+      "Aplástalos con una tabla o una patacona.",
+      "Pásalos por agua con sal y ajo.",
+      "Fríelos de nuevo hasta que estén crocantes y sirve con hogao o guacamole."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Patacones_fritos.jpg/960px-Patacones_fritos.jpg",
+      "autor": "TitiNicola",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Patacones_fritos.jpg"
+    }
+  },
+  {
+    "id": "empanadas",
+    "nombre": "Empanadas colombianas",
+    "region": "Todo el país",
+    "descripcion": "Masa de maíz amarillo rellena de papa y carne, frita bien crocante. Siempre con ají y limón.",
+    "ingredientes": [
+      "2 tazas de harina de maíz amarillo",
+      "4 papas",
+      "250 g de carne de res o cerdo",
+      "Hogao y comino",
+      "Aceite para freír",
+      "Ají y limón para servir"
+    ],
+    "preparacion": [
+      "Cocina la papa y la carne, desmecha la carne y mezcla todo con hogao y comino.",
+      "Amasa la harina con agua caliente, sal y un poco de achiote.",
+      "Estira la masa entre plástico, rellena, dobla y corta en media luna.",
+      "Fríe en aceite bien caliente hasta que estén crocantes.",
+      "Sirve con ají y limón."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Colombian_empanadas_with_aj%C3%AD.jpg/960px-Colombian_empanadas_with_aj%C3%AD.jpg",
+      "autor": "Huhorihe2",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Colombian_empanadas_with_aj%C3%AD.jpg"
+    }
+  },
+  {
+    "id": "bunuelos",
+    "nombre": "Buñuelos",
+    "region": "Todo el país (sobre todo en diciembre)",
+    "descripcion": "Bolitas fritas de queso y almidón de yuca, doradas por fuera y suaves por dentro. Infaltables en la novena con natilla.",
+    "ingredientes": [
+      "2 tazas de queso costeño rallado",
+      "1 taza de almidón de yuca",
+      "2 cucharadas de harina de maíz precocida",
+      "1 huevo",
+      "1 cucharada de azúcar",
+      "Aceite para freír"
+    ],
+    "preparacion": [
+      "Mezcla el queso, el almidón, la harina y el azúcar.",
+      "Agrega el huevo y amasa hasta tener una masa suave que no se pegue.",
+      "Forma bolitas de unos 4 cm.",
+      "Fríelas en aceite tibio, no muy caliente, hasta que giren solas y queden doradas, unos 8 minutos."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Bu%C3%B1uelos_Colombianos_%2824221303805%29.jpg/960px-Bu%C3%B1uelos_Colombianos_%2824221303805%29.jpg",
+      "autor": "John Alexis Guerra Gómez",
+      "licencia": "CC BY-SA 2.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Bu%C3%B1uelos_Colombianos_(24221303805).jpg"
+    }
+  }
+]

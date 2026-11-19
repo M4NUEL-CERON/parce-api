@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Parce API · Dichos colombianos</title>
-  <meta name="description" content="API pública y gratis de dichos colombianos. Aprende a hablar como un parcero.">
+  <title>Parce API · Dichos y platos colombianos</title>
+  <meta name="description" content="API pública y gratis de dichos y platos típicos colombianos. Aprende a hablar y a cocinar como un parcero.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦜</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,6 +83,29 @@
     .tarjeta span { color: var(--muted); font-size: .95rem; }
     .vacio { color: var(--muted); }
 
+    /* Platos */
+    .platos { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; }
+    .plato { padding: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; background: var(--card); border: 2.5px solid var(--fg); border-radius: 22px; overflow: hidden; box-shadow: 4px 4px 0 var(--fg); transition: transform .15s, box-shadow .15s; }
+    .plato:hover, .plato:focus-visible { transform: translate(-3px, -3px) rotate(-.5deg); box-shadow: 7px 7px 0 var(--fg); outline: none; }
+    .plato img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 2.5px solid var(--fg); background: var(--line); }
+    .plato .info { padding: 14px 18px 18px; }
+    .plato strong { display: block; font-size: 1.25rem; line-height: 1.2; margin-top: 8px; }
+    .region { display: inline-block; font-size: .75rem; font-weight: 800; background: var(--amarillo); color: #1a1714; padding: 3px 10px; border-radius: 999px; }
+
+    dialog.receta { width: min(760px, calc(100% - 32px)); max-height: calc(100% - 32px); padding: 0; border: 3px solid var(--fg); border-radius: 24px; background: var(--card); color: var(--fg); box-shadow: var(--sombra); }
+    dialog.receta::backdrop { background: #000a; }
+    .receta > div { position: relative; }
+    .receta img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 3px solid var(--fg); }
+    .receta .cuerpo { padding: 24px 28px 28px; }
+    .receta h3 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 10px 0 8px; line-height: 1.05; }
+    .receta .desc { color: var(--muted); margin: 0 0 24px; }
+    .columnas { display: grid; grid-template-columns: 1fr 1.4fr; gap: 28px; }
+    .columnas h4 { margin: 0 0 8px; font-size: 1.1rem; }
+    .columnas ul, .columnas ol { margin: 0; padding-left: 20px; }
+    .columnas li { margin: 6px 0; }
+    .credito { margin: 24px 0 0; font-size: .8rem; color: var(--muted); }
+    .cerrar { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; padding: 0; font-size: 1.3rem; line-height: 1; }
+
     /* Devs */
     .devs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
     .endpoints { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
@@ -106,6 +129,8 @@
       .hero { padding-top: 16px; }
       .destacado { transform: none; padding: 28px 22px; margin-top: 30px; }
       .sombrero { width: 120px; top: -52px; right: -6px; }
+      .columnas { grid-template-columns: 1fr; gap: 20px; }
+      .receta .cuerpo { padding: 20px; }
       nav .links { display: none; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } }
@@ -117,7 +142,7 @@
   <div class="wrap">
     <nav>
       <span>🦜 Parce API</span>
-      <span class="links"><a href="#dichos">Dichos</a><a href="#devs">Para devs</a><a href="https://github.com/M4NUEL-CERON/parce-api">GitHub</a></span>
+      <span class="links"><a href="#dichos">Dichos</a><a href="#platos">Platos</a><a href="#devs">Para devs</a><a href="https://github.com/M4NUEL-CERON/parce-api">GitHub</a></span>
     </nav>
 
     <header class="hero">
@@ -169,6 +194,29 @@
       <input class="buscar" id="buscar" type="search" placeholder="Buscar: papaya, plata, rumba…" aria-label="Buscar dichos">
       <div class="grid" id="grid"></div>
     </section>
+
+    <section id="platos">
+      <h2>Platos típicos 🍲</h2>
+      <p class="sub">De la bandeja paisa al mote de queso. Toque un plato para ver los ingredientes y cómo se prepara.</p>
+      <div class="platos" id="platos-grid"></div>
+    </section>
+
+    <dialog class="receta" id="receta" aria-labelledby="receta-nombre">
+      <div>
+        <img alt="">
+        <button class="btn cerrar" id="cerrar" aria-label="Cerrar">✕</button>
+        <div class="cuerpo">
+          <span class="region"></span>
+          <h3 id="receta-nombre"></h3>
+          <p class="desc"></p>
+          <div class="columnas">
+            <div><h4>Ingredientes</h4><ul></ul></div>
+            <div><h4>Preparación</h4><ol></ol></div>
+          </div>
+          <p class="credito"></p>
+        </div>
+      </div>
+    </dialog>
 
     <section id="devs">
       <h2>Para devs 👩‍💻</h2>
@@ -238,7 +286,36 @@
     const endpoints = [
       ['/api', 'recursos'], ['/api/dichos/hoy', 'del día'], ['/api/dichos/random', 'al azar'],
       ['/api/dichos?q=plata', 'buscar'], ['/api/dichos/no-dar-papaya', 'por id'],
+      ['/api/platos/hoy', 'plato del día'], ['/api/platos/ajiaco', 'receta'],
     ];
+
+    const llenar = (el, items) => el.replaceChildren(...items.map((t) => Object.assign(document.createElement('li'), { textContent: t })));
+    function abrirPlato(p) {
+      const d = $('receta');
+      Object.assign(d.querySelector('img'), { src: p.imagen.url, alt: p.nombre });
+      d.querySelector('.region').textContent = p.region;
+      d.querySelector('h3').textContent = p.nombre;
+      d.querySelector('.desc').textContent = p.descripcion;
+      llenar(d.querySelector('ul'), p.ingredientes);
+      llenar(d.querySelector('ol'), p.preparacion);
+      const a = Object.assign(document.createElement('a'), { href: p.imagen.fuente, target: '_blank', rel: 'noopener', textContent: 'Wikimedia Commons' });
+      d.querySelector('.credito').replaceChildren(`Foto: ${p.imagen.autor} · ${p.imagen.licencia} · `, a);
+      d.showModal();
+    }
+    $('cerrar').onclick = () => $('receta').close();
+    $('receta').onclick = (e) => { if (e.target === $('receta')) $('receta').close(); }; // clic en el fondo cierra
+    fetch('/api/platos').then((r) => r.json()).then((platos) => {
+      $('platos-grid').replaceChildren(...platos.map((p) => {
+        const b = document.createElement('button');
+        b.className = 'plato';
+        b.innerHTML = '<img loading="lazy"><div class="info"><span class="region"></span><strong></strong></div>';
+        Object.assign(b.querySelector('img'), { src: p.imagen.url, alt: p.nombre });
+        b.querySelector('.region').textContent = p.region;
+        b.querySelector('strong').textContent = p.nombre;
+        b.onclick = () => abrirPlato(p);
+        return b;
+      }));
+    }).catch(() => { $('platos-grid').innerHTML = '<p class="vacio">Uy, los platos no cargaron.</p>'; });
     $('endpoints').replaceChildren(...endpoints.map(([ruta, nota]) => {
       const li = document.createElement('li'), b = document.createElement('button');
       b.innerHTML = '<span class="metodo">GET</span><span></span><small></small>';
@@ -262,7 +339,7 @@
         const frases = lista.map((d) => `<span>${d.dicho.replace(/[<&]/g, '')}</span>`).join('');
         $('cinta').innerHTML = frases + frases; // duplicado para que el loop no tenga salto
         pintarGrid();
-        probar('/api/dichos/hoy', document.querySelector('.endpoints button:nth-child(1)'));
+        probar('/api/dichos/hoy', document.querySelector('.endpoints li:nth-child(2) button'));
       } catch { $('dicho').textContent = 'Uy, no cargó. Recargue la página.'; }
     })();
   </script>
