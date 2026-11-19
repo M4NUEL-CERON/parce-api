@@ -89,7 +89,10 @@
     .consola .url { color: var(--amarillo); display: block; margin-bottom: 10px; overflow-wrap: anywhere; }
     .consola pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 
-    footer { padding: 80px 0 40px; text-align: center; color: var(--muted); }
+    footer { margin-top: 100px; padding: 48px 0 40px; text-align: center; color: var(--muted); border-top: 2px dashed var(--line); }
+    .firma { font-size: clamp(1.4rem, 3vw, 2rem); color: var(--fg); margin: 0 0 20px; }
+    .redes { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; padding: 0; margin-bottom: 24px; }
+    .redes .btn { padding: 9px 18px; font-size: .95rem; }
     .toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 120px); background: var(--fg); color: var(--bg); padding: 12px 22px; border-radius: 999px; font-weight: 800; transition: transform .3s; z-index: 10; }
     .toast.ver { transform: translate(-50%, 0); }
 
@@ -156,7 +159,15 @@
       </div>
     </section>
 
-    <footer>Hecho con ☕ colombiano · <a href="https://github.com/M4NUEL-CERON/parce-api">Código en GitHub</a></footer>
+    <footer>
+      <p class="firma">By ❤️ to internet, <strong>Manuel Cerón</strong></p>
+      <div class="redes">
+        <a class="btn" href="https://www.linkedin.com/in/manuel-cer%C3%B3n-564b52304" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/M4NUEL-CERON" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://manuelceron.vercel.app" target="_blank" rel="noopener">Portafolio</a>
+      </div>
+      <p>Hecho con ☕ colombiano · <a href="https://github.com/M4NUEL-CERON/parce-api">Código de la API</a></p>
+    </footer>
   </div>
 
   <div class="toast" id="toast" role="status"></div>
