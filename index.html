@@ -47,7 +47,12 @@
 
     /* Tarjeta del dicho */
     .destacado { position: relative; background: var(--card); border: 3px solid var(--fg); border-radius: 28px; padding: 36px; box-shadow: var(--sombra); transform: rotate(1.2deg); }
-    .destacado::before { content: "🦜"; position: absolute; top: -34px; right: 24px; font-size: 3.4rem; transform: rotate(12deg); }
+    .sombrero { position: absolute; top: -70px; right: -18px; width: 170px; transform: rotate(12deg); filter: drop-shadow(4px 4px 0 #1a171433); pointer-events: none; }
+    .trenza { height: 14px; margin-top: 100px; background:
+      linear-gradient(135deg, var(--bg) 25%, transparent 25%) -7px 0 / 14px 14px,
+      linear-gradient(225deg, var(--bg) 25%, transparent 25%) -7px 0 / 14px 14px,
+      linear-gradient(315deg, var(--bg) 25%, transparent 25%) 0 0 / 14px 14px,
+      linear-gradient(45deg, var(--bg) 25%, transparent 25%) 0 0 / 14px 14px, var(--fg); }
     .chip { display: inline-block; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; background: var(--rojo); color: var(--sobre); padding: 4px 12px; border-radius: 999px; }
     #dicho { font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.1; font-weight: 800; margin: 16px 0 14px; }
     #significado { font-size: 1.1rem; margin: 0 0 14px; }
@@ -89,7 +94,7 @@
     .consola .url { color: var(--amarillo); display: block; margin-bottom: 10px; overflow-wrap: anywhere; }
     .consola pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 
-    footer { margin-top: 100px; padding: 48px 0 40px; text-align: center; color: var(--muted); border-top: 2px dashed var(--line); }
+    footer { padding: 48px 0 40px; text-align: center; color: var(--muted); }
     .firma { font-size: clamp(1.4rem, 3vw, 2rem); color: var(--fg); margin: 0 0 20px; }
     .redes { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; padding: 0; margin-bottom: 24px; }
     .redes .btn { padding: 9px 18px; font-size: .95rem; }
@@ -99,7 +104,8 @@
     @media (max-width: 800px) {
       .hero, .devs { grid-template-columns: 1fr; gap: 40px; }
       .hero { padding-top: 16px; }
-      .destacado { transform: none; padding: 28px 22px; }
+      .destacado { transform: none; padding: 28px 22px; margin-top: 30px; }
+      .sombrero { width: 120px; top: -52px; right: -6px; }
       nav .links { display: none; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } }
@@ -125,6 +131,20 @@
       </div>
 
       <article class="destacado" aria-live="polite">
+        <!-- Sombrero vueltiao: ala y copa crema con franjas negras de la trenza -->
+        <svg class="sombrero" viewBox="0 0 200 120" aria-hidden="true">
+          <defs><clipPath id="copa"><path d="M64 86 C60 52 70 20 100 20 C130 20 140 52 136 86 Q100 104 64 86 Z"/></clipPath></defs>
+          <ellipse cx="100" cy="86" rx="96" ry="30" fill="#f4e7c5" stroke="#1a1714" stroke-width="3"/>
+          <ellipse cx="100" cy="86" rx="82" ry="25" fill="none" stroke="#1a1714" stroke-width="5" stroke-dasharray="7 4"/>
+          <ellipse cx="100" cy="86" rx="68" ry="20" fill="none" stroke="#1a1714" stroke-width="3"/>
+          <path d="M64 86 C60 52 70 20 100 20 C130 20 140 52 136 86 Q100 104 64 86 Z" fill="#f4e7c5"/>
+          <g clip-path="url(#copa)" fill="#1a1714">
+            <rect x="0" y="36" width="200" height="5"/>
+            <rect x="0" y="50" width="200" height="7"/>
+            <rect x="0" y="66" width="200" height="5"/>
+          </g>
+          <path d="M64 86 C60 52 70 20 100 20 C130 20 140 52 136 86" fill="none" stroke="#1a1714" stroke-width="3"/>
+        </svg>
         <span class="chip" id="titulo">Dicho del día</span>
         <div id="contenido">
           <div id="dicho">Cargando…</div>
@@ -159,6 +179,7 @@
       </div>
     </section>
 
+    <div class="trenza" aria-hidden="true"></div>
     <footer>
       <p class="firma">By ❤️ to internet, <strong>Manuel Cerón</strong></p>
       <div class="redes">
