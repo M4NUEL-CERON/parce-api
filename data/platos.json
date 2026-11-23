@@ -378,5 +378,168 @@
       "licencia": "CC BY-SA 2.0",
       "fuente": "https://commons.wikimedia.org/wiki/File:Bu%C3%B1uelos_Colombianos_(24221303805).jpg"
     }
+  },
+  {
+    "id": "pandebono",
+    "nombre": "Pandebono",
+    "region": "Valle del Cauca",
+    "descripcion": "Pan de queso y almidón de yuca, redondito y esponjoso, que se come caliente con chocolate o tinto al desayuno.",
+    "ingredientes": [
+      "250 g de almidón de yuca",
+      "50 g de harina de maíz precocida",
+      "250 g de queso costeño rallado",
+      "1 huevo",
+      "1 cucharada de azúcar",
+      "2 a 3 cucharadas de leche"
+    ],
+    "preparacion": [
+      "Precalienta el horno a 220 °C.",
+      "Mezcla el almidón, la harina de maíz, el queso y el azúcar.",
+      "Agrega el huevo y la leche poco a poco hasta lograr una masa suave que no se pegue.",
+      "Forma bolitas del tamaño de una nuez grande.",
+      "Hornea de 15 a 20 minutos, hasta que estén doraditos, y cómelos calientes."
+    ],
+    "imagen": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Pandebono.jpg",
+      "autor": "vasquezcarlosm",
+      "licencia": "CC BY-SA 2.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Pandebono.jpg"
+    }
+  },
+  {
+    "id": "natilla",
+    "nombre": "Natilla",
+    "region": "Todo el país (sobre todo en diciembre)",
+    "descripcion": "Postre navideño de leche, panela y fécula de maíz, cuajado y cortado en cuadros. Se acompaña con buñuelos en la novena.",
+    "ingredientes": [
+      "1 litro de leche",
+      "250 g de panela rallada",
+      "150 g de fécula de maíz",
+      "2 astillas de canela",
+      "1 cucharada de mantequilla",
+      "Coco rallado o uvas pasas al gusto"
+    ],
+    "preparacion": [
+      "Disuelve la fécula de maíz en una taza de leche fría.",
+      "Calienta el resto de la leche con la panela y la canela hasta que la panela se derrita.",
+      "Retira la canela, agrega la fécula disuelta y revuelve sin parar a fuego medio.",
+      "Cuando espese y se despegue de la olla, agrega la mantequilla y el coco o las pasas.",
+      "Vierte en un molde, deja enfriar y corta en cuadros."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/PorcionNatillaCol.jpg/960px-PorcionNatillaCol.jpg",
+      "autor": "Jdvillalobos",
+      "licencia": "CC0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:PorcionNatillaCol.jpg"
+    }
+  },
+  {
+    "id": "cazuela-de-mariscos",
+    "nombre": "Cazuela de mariscos",
+    "region": "Costa Caribe",
+    "descripcion": "Sopa cremosa de camarones, calamares, mejillones y pescado en leche de coco, servida en cazuela de barro con arroz con coco y patacón.",
+    "ingredientes": [
+      "500 g de mariscos mixtos (camarón, calamar, mejillones)",
+      "300 g de filete de pescado blanco en trozos",
+      "400 ml de leche de coco",
+      "1/2 taza de crema de leche",
+      "1 cebolla, 1 pimentón y 2 dientes de ajo picados",
+      "2 tomates picados",
+      "1 cucharadita de color (achiote)",
+      "Cilantro picado"
+    ],
+    "preparacion": [
+      "Sofríe la cebolla, el pimentón, el ajo y el tomate con el color hasta que se ablanden.",
+      "Agrega la leche de coco y deja hervir a fuego bajo cinco minutos.",
+      "Incorpora el pescado y cocina tres minutos.",
+      "Agrega los mariscos y cocina tres minutos más, sin dejar que se pongan duros.",
+      "Añade la crema de leche, ajusta la sal y termina con cilantro.",
+      "Sirve en cazuela con arroz con coco y patacones."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Cazumar-Barrq.jpg/960px-Cazumar-Barrq.jpg",
+      "autor": "Jdvillalobos",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Cazumar-Barrq.jpg"
+    }
+  },
+  {
+    "id": "arroz-atollado",
+    "nombre": "Arroz atollado",
+    "region": "Valle del Cauca",
+    "descripcion": "Arroz caldoso y espeso con cerdo, pollo, longaniza y papa, sazonado con hogao y color. El plato de paseo de olla del Valle.",
+    "ingredientes": [
+      "2 tazas de arroz",
+      "300 g de costilla o carne de cerdo en trozos",
+      "300 g de pollo en presas",
+      "2 longanizas o chorizos en rodajas",
+      "3 papas pastusas en cubos",
+      "Hogao: tomate, cebolla larga y ajo",
+      "1 cucharadita de color (achiote)",
+      "6 tazas de caldo"
+    ],
+    "preparacion": [
+      "Dora el cerdo, el pollo y la longaniza en una olla grande.",
+      "Agrega el hogao y el color y sofríe unos minutos.",
+      "Vierte el caldo y cocina hasta que las carnes estén tiernas.",
+      "Agrega el arroz y la papa, y cocina a fuego bajo revolviendo de vez en cuando.",
+      "Retira cuando el arroz esté blando y quede espeso pero húmedo, «atollado»."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Arroz_atollado.jpg/960px-Arroz_atollado.jpg",
+      "autor": "Olavia Kite",
+      "licencia": "CC BY 2.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Arroz_atollado.jpg"
+    }
+  },
+  {
+    "id": "mazamorra-antioquena",
+    "nombre": "Mazamorra antioqueña",
+    "region": "Antioquia",
+    "descripcion": "Maíz blanco pelado cocinado hasta ablandar y servido en su propio caldo con leche fría. Se come con panela o bocadillo como sobremesa.",
+    "ingredientes": [
+      "500 g de maíz blanco trillado (pelado)",
+      "Agua suficiente",
+      "Leche fría al gusto",
+      "Panela o bocadillo para acompañar"
+    ],
+    "preparacion": [
+      "Remoja el maíz desde la noche anterior.",
+      "Cocínalo en abundante agua, sin sal, por 2 a 3 horas (o 45 minutos en olla a presión) hasta que esté blando.",
+      "Deja enfriar el maíz en su caldo.",
+      "Sirve en un vaso o taza con leche fría y un trozo de panela o bocadillo al lado."
+    ],
+    "imagen": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Mazamorra-antioque%C3%B1a.jpg",
+      "autor": "Ahoraes",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Mazamorra-antioque%C3%B1a.jpg"
+    }
+  },
+  {
+    "id": "arepa-boyacense",
+    "nombre": "Arepa boyacense",
+    "region": "Boyacá",
+    "descripcion": "Arepa dulce de maíz amarillo rellena de cuajada, asada en tiesto o plancha. Típica de carretera y de plaza de mercado.",
+    "ingredientes": [
+      "2 tazas de harina de maíz amarillo",
+      "1/2 taza de harina de trigo",
+      "2 cucharadas de azúcar o panela rallada",
+      "2 cucharadas de mantequilla derretida",
+      "1 taza de leche tibia",
+      "200 g de cuajada o queso campesino"
+    ],
+    "preparacion": [
+      "Mezcla las harinas, el azúcar y una pizca de sal.",
+      "Agrega la mantequilla y la leche hasta formar una masa suave.",
+      "Forma discos delgados, pon cuajada en el centro de uno y tápalo con otro, sellando los bordes.",
+      "Ásalas a fuego medio en plancha o tiesto, unos 5 minutos por lado, hasta que doren."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Arepa_Boyacense.jpg/960px-Arepa_Boyacense.jpg",
+      "autor": "Neoredacturus",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Arepa_Boyacense.jpg"
+    }
   }
 ]
