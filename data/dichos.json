@@ -40,5 +40,15 @@
   { "id": "hacerse-el-de-las-gafas", "dicho": "Hacerse el de las gafas", "significado": "Fingir que no se ve o no se entiende algo para evitar responsabilidad.", "ejemplo": "Le pedí la plata que me debe y se hizo el de las gafas." },
   { "id": "buscarle-la-comba-al-palo", "dicho": "Buscarle la comba al palo", "significado": "Encontrarle la manera o el truco a algo difícil.", "ejemplo": "El arreglo parecía imposible, pero le buscamos la comba al palo." },
   { "id": "ser-lambon", "dicho": "Ser lambón", "significado": "Ser adulador o zalamero para quedar bien con alguien, sobre todo con el jefe.", "ejemplo": "Le llevó tinto al jefe sin que se lo pidiera; qué lambón." },
-  { "id": "meter-la-pata", "dicho": "Meter la pata", "significado": "Equivocarse, decir o hacer algo inoportuno.", "ejemplo": "Metí la pata: le pregunté por el novio y ya habían terminado." }
+  { "id": "meter-la-pata", "dicho": "Meter la pata", "significado": "Equivocarse, decir o hacer algo inoportuno.", "ejemplo": "Metí la pata: le pregunté por el novio y ya habían terminado." },
+  { "id": "hacer-el-oso", "dicho": "Hacer el oso", "significado": "Hacer el ridículo delante de otros.", "ejemplo": "Me puse a cantar en el karaoke y hice el oso." },
+  { "id": "pedir-cacao", "dicho": "Pedir cacao", "significado": "Rendirse o pedir compasión cuando ya no se aguanta más.", "ejemplo": "Al kilómetro diez ya estaba pidiendo cacao." },
+  { "id": "estar-tragado", "dicho": "Estar tragado", "significado": "Estar muy enamorado de alguien.", "ejemplo": "No hace sino hablar de ella; está tragadísimo." },
+  { "id": "camellar", "dicho": "Camellar", "significado": "Trabajar, sobre todo duro. «Un camello» es un trabajo o algo muy difícil.", "ejemplo": "No puedo ir al partido, me toca camellar el sábado." },
+  { "id": "que-pena-con-usted", "dicho": "Qué pena con usted", "significado": "Forma muy colombiana de pedir disculpas o de interrumpir con cortesía.", "ejemplo": "Qué pena con usted, ¿me regala la hora?" },
+  { "id": "echar-cantaleta", "dicho": "Echar cantaleta", "significado": "Regañar a alguien repitiendo lo mismo una y otra vez.", "ejemplo": "Llegué tarde y mi mamá me echó cantaleta toda la mañana." },
+  { "id": "estar-embalado", "dicho": "Estar embalado", "significado": "Estar en apuros o muy ocupado, con el tiempo encima.", "ejemplo": "No me puedo quedar, estoy embalado con la entrega de mañana." },
+  { "id": "hagale-pues", "dicho": "Hágale pues", "significado": "Expresión paisa para decir que sí, de acuerdo, o para animar a alguien.", "ejemplo": "¿Nos vemos a las ocho? Hágale pues." },
+  { "id": "le-cogio-la-tarde", "dicho": "Le cogió la tarde", "significado": "Se le hizo tarde o se demoró más de la cuenta.", "ejemplo": "Salga ya, que le va a coger la tarde para el bus." },
+  { "id": "perro-que-ladra-no-muerde", "dicho": "Perro que ladra no muerde", "significado": "El que mucho amenaza casi nunca cumple.", "ejemplo": "Tranquilo, el vecino siempre dice que va a demandar; perro que ladra no muerde." }
 ]
