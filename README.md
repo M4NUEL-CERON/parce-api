@@ -48,7 +48,7 @@ parce-api/
 
 ## Agregar contenido
 
-- **Un dicho nuevo:** agrégalo a `data/dichos.json` con un `id` único en minúsculas y con guiones.
+- **Un dicho nuevo:** agrégalo a `data/dichos.json` con un `id` único en minúsculas y con guiones, y su `region` (`"Todo el país"` si se dice en todas partes). Así sale en `/api/dichos?region=antioquia`.
 - **Un recurso nuevo** (ej. postres): crea `data/postres.json` con objetos que tengan `id`. Queda disponible solo en `/api/postres`.
 
 Corre `npm test` antes de hacer commit.

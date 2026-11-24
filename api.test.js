@@ -17,7 +17,9 @@ test('filtra por campo', () => {
   assert.ok(llamar('/api/platos?region=bogota').body.some((p) => p.id === 'ajiaco')); // sin tilde
   assert.deepEqual(llamar('/api/platos?region=tolima&q=arveja').body.map((p) => p.id), ['lechona', 'tamal-tolimense']);
   assert.deepEqual(llamar('/api/platos?region=narnia').body, []);
+  assert.deepEqual(llamar('/api/dichos?region=antioquia').body.map((d) => d.id), ['hagale-pues', 'ave-maria-pues']);
 });
+test('cada dicho tiene región', () => assert.ok(llamar('/api/dichos').body.every((d) => d.region)));
 test('hoy, random y 404', () => {
   assert.ok(llamar('/api/dichos/hoy').body.id);
   assert.ok(llamar('/api/dichos/random').body.id);
