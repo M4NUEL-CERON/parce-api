@@ -67,5 +67,20 @@
   { "id": "mira-ve", "dicho": "Mirá, ve", "significado": "Muletilla valluna para llamar la atención de alguien o reforzar lo que se dice, con voseo.", "ejemplo": "Mirá, ve, ¿vos sí vas a ir al partido del Cali?", "region": "Valle del Cauca (valluno)" },
   { "id": "ala-mano", "dicho": "¡Ala, mano!", "significado": "Saludo o exclamación santandereana; «mano» es hermano o amigo.", "ejemplo": "¡Ala, mano! ¿Y usted cuándo llegó a Bucaramanga?", "region": "Santander (santandereano)" },
   { "id": "achichay", "dicho": "¡Achichay!", "significado": "¡Qué frío! Viene del quechua.", "ejemplo": "¡Achichay! A esta hora en Pasto no sale ni el perro.", "region": "Nariño (pastuso)" },
-  { "id": "chino", "dicho": "Chino", "significado": "Niño o muchacho joven.", "ejemplo": "Ese chino no se queda quieto ni un minuto.", "region": "Bogotá y Cundinamarca (rolo)" }
+  { "id": "chino", "dicho": "Chino", "significado": "Niño o muchacho joven.", "ejemplo": "Ese chino no se queda quieto ni un minuto.", "region": "Bogotá y Cundinamarca (rolo)" },
+  { "id": "que-mas-pues", "dicho": "¿Qué más, pues?", "significado": "Saludo paisa: ¿cómo estás?, ¿qué hay de nuevo?", "ejemplo": "¡Quiubo, mijo! ¿Qué más, pues? Hace rato no lo veía.", "region": "Antioquia y Eje Cafetero (paisa)" },
+  { "id": "que-charro", "dicho": "¡Qué charro!", "significado": "Qué gracioso, qué curioso o qué raro.", "ejemplo": "¿Se encontró al profe en la discoteca? ¡Qué charro!", "region": "Antioquia y Eje Cafetero (paisa)" },
+  { "id": "aja", "dicho": "¡Ajá!", "significado": "Muletilla costeña para todo: saludar, preguntar, retomar una conversación o mostrar que se está escuchando.", "ejemplo": "Ajá, ¿y entonces qué, vamos o no vamos a la playa?", "region": "Costa Caribe (costeño)" },
+  { "id": "eche", "dicho": "¡Eche!", "significado": "Interjección costeña de sorpresa, molestia o énfasis.", "ejemplo": "¡Eche, qué calor el que está haciendo hoy!", "region": "Costa Caribe (costeño)" },
+  { "id": "cogela-suave", "dicho": "Cógela suave", "significado": "Tómalo con calma, no te afanes.", "ejemplo": "Cógela suave, compa, que la playa no se va a ir.", "region": "Costa Caribe (costeño)" },
+  { "id": "gomelo", "dicho": "Gomelo", "significado": "Persona de plata o que aparenta serlo, con forma de hablar y vestir muy marcada.", "ejemplo": "Ese parche es muy gomelo: solo van a restaurantes del norte.", "region": "Bogotá y Cundinamarca (rolo)" },
+  { "id": "nero", "dicho": "Ñero", "significado": "Persona de la calle o de modales bruscos. Viene de «compañero».", "ejemplo": "No sea ñero y salude a la gente cuando llega.", "region": "Bogotá y Cundinamarca (rolo)" },
+  { "id": "si-o-que", "dicho": "¿Sí o qué?", "significado": "Muletilla rola para pedir que el otro esté de acuerdo.", "ejemplo": "Ese concierto estuvo increíble, ¿sí o qué?", "region": "Bogotá y Cundinamarca (rolo)" },
+  { "id": "harto", "dicho": "Harto", "significado": "Mucho o muy. No significa cansado.", "ejemplo": "Sumercé, coma harto que la sopa está harto buena.", "region": "Boyacá y Cundinamarca (boyaco)" },
+  { "id": "chuspa", "dicho": "Chuspa", "significado": "Bolsa plástica.", "ejemplo": "Mirá, ve, pasame una chuspa para echar el mecato.", "region": "Valle del Cauca (valluno)" },
+  { "id": "dar-un-borondo", "dicho": "Dar un borondo", "significado": "Salir a dar una vuelta o un paseo sin rumbo fijo.", "ejemplo": "¿Vamos a dar un borondo por el bulevar del río?", "region": "Valle del Cauca (valluno)" },
+  { "id": "hablar-golpeado", "dicho": "Hablar golpeado", "significado": "Hablar fuerte y directo, como se habla en Santander, sin que sea pelea.", "ejemplo": "Tranquilo, no está bravo: así hablan golpeado en Bucaramanga.", "region": "Santander (santandereano)" },
+  { "id": "atatay", "dicho": "¡Atatay!", "significado": "¡Qué asco! Viene del quechua.", "ejemplo": "¡Atatay! Esa leche ya está cortada.", "region": "Nariño (pastuso)" },
+  { "id": "ananay", "dicho": "¡Ananay!", "significado": "¡Qué bonito! Viene del quechua.", "ejemplo": "¡Ananay, el carnaval de Negros y Blancos este año!", "region": "Nariño (pastuso)" },
+  { "id": "guagua", "dicho": "Guagua", "significado": "Bebé o niño pequeño. Viene del quechua.", "ejemplo": "La guagua ya está dormida, hablen pasito.", "region": "Nariño (pastuso)" }
 ]
