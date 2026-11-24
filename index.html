@@ -193,7 +193,7 @@
     <section id="dichos">
       <h2>Todos los dichos</h2>
       <p class="sub"><span id="total">…</span> dichos, y cada día llegan más. Toque uno para verlo en grande.</p>
-      <input class="buscar" id="buscar" type="search" placeholder="Buscar: papaya, plata, rumba…" aria-label="Buscar dichos">
+      <input class="buscar" id="buscar" type="search" placeholder="Buscar: papaya, plata, Antioquia, costa…" aria-label="Buscar dichos">
       <div class="grid" id="grid"></div>
     </section>
 
@@ -261,7 +261,7 @@
     }
 
     function pintarGrid(q = '') {
-      const lista = todos.filter((d) => sinTildes(d.dicho + ' ' + d.significado).includes(sinTildes(q)));
+      const lista = todos.filter((d) => sinTildes(d.dicho + ' ' + d.significado + ' ' + d.region).includes(sinTildes(q)));
       $('grid').replaceChildren(...lista.map((d) => {
         const b = document.createElement('button');
         b.className = 'tarjeta';
