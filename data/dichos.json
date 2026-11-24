@@ -50,5 +50,15 @@
   { "id": "estar-embalado", "dicho": "Estar embalado", "significado": "Estar en apuros o muy ocupado, con el tiempo encima.", "ejemplo": "No me puedo quedar, estoy embalado con la entrega de mañana." },
   { "id": "hagale-pues", "dicho": "Hágale pues", "significado": "Expresión paisa para decir que sí, de acuerdo, o para animar a alguien.", "ejemplo": "¿Nos vemos a las ocho? Hágale pues." },
   { "id": "le-cogio-la-tarde", "dicho": "Le cogió la tarde", "significado": "Se le hizo tarde o se demoró más de la cuenta.", "ejemplo": "Salga ya, que le va a coger la tarde para el bus." },
-  { "id": "perro-que-ladra-no-muerde", "dicho": "Perro que ladra no muerde", "significado": "El que mucho amenaza casi nunca cumple.", "ejemplo": "Tranquilo, el vecino siempre dice que va a demandar; perro que ladra no muerde." }
+  { "id": "perro-que-ladra-no-muerde", "dicho": "Perro que ladra no muerde", "significado": "El que mucho amenaza casi nunca cumple.", "ejemplo": "Tranquilo, el vecino siempre dice que va a demandar; perro que ladra no muerde." },
+  { "id": "cogerle-la-cana", "dicho": "Cogerle la caña a alguien", "significado": "Seguirle la corriente o la broma a alguien.", "ejemplo": "Le dije que me había ganado la lotería y me cogió la caña todo el día." },
+  { "id": "estar-engallado", "dicho": "Estar engallado", "significado": "Estar muy bien arreglado, o tener algo lleno de lujos y accesorios.", "ejemplo": "Llegó a la fiesta engallado, con zapatos nuevos y todo." },
+  { "id": "fresco", "dicho": "Fresco", "significado": "Tranquilo, no se preocupe.", "ejemplo": "¿Le debo algo? Fresco, parce, eso no es nada." },
+  { "id": "ser-llave", "dicho": "Ser llave", "significado": "Ser amigos muy cercanos. «Mi llave» es mi mejor amigo.", "ejemplo": "Con Andrés somos llaves desde el colegio." },
+  { "id": "parcharse", "dicho": "Parcharse", "significado": "Reunirse a pasar el rato con los amigos, sin plan fijo. «El parche» es el grupo de amigos.", "ejemplo": "¿Nos parchamos esta noche en la casa de Juli?" },
+  { "id": "achantarse", "dicho": "Achantarse", "significado": "Desanimarse, ponerse triste o quedarse callado por pena.", "ejemplo": "No se achante por ese parcial, que en el próximo le va bien." },
+  { "id": "que-pereza", "dicho": "¡Qué pereza!", "significado": "Qué aburrimiento o qué fastidio; también se dice de alguien o algo pesado.", "ejemplo": "¿Otra reunión a las siete de la mañana? ¡Qué pereza!" },
+  { "id": "montarsela-a-alguien", "dicho": "Montársela a alguien", "significado": "Molestar o burlarse de alguien de forma insistente.", "ejemplo": "Desde que se cayó en la cancha, todo el salón se la monta." },
+  { "id": "estar-en-la-buena", "dicho": "Estar en la buena", "significado": "Estar pasando por un buen momento o estar de buen ánimo con alguien.", "ejemplo": "Con el trabajo nuevo y la novia, está en la buena." },
+  { "id": "dios-le-da-pan-al-que-no-tiene-dientes", "dicho": "Dios le da pan al que no tiene dientes", "significado": "La suerte o las oportunidades a veces le llegan a quien no las sabe aprovechar.", "ejemplo": "Le regalaron una guitarra y no sabe tocar: Dios le da pan al que no tiene dientes." }
 ]
