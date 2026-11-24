@@ -5,7 +5,7 @@
   { "id": "al-que-no-le-gusta-el-caldo", "dicho": "Al que no le gusta el caldo se le dan dos tazas", "significado": "Justo lo que uno no quiere es lo que más le toca.", "ejemplo": "Odio madrugar y ahora entro a las seis. Al que no le gusta el caldo...", "region": "Todo el país" },
   { "id": "el-que-peca-y-reza-empata", "dicho": "El que peca y reza empata", "significado": "Se justifica hacer algo malo si después uno se arrepiente.", "ejemplo": "Me comí la torta entera, pero mañana salgo a trotar: el que peca y reza empata.", "region": "Todo el país" },
   { "id": "echar-los-perros", "dicho": "Echar los perros", "significado": "Coquetear o intentar conquistar a alguien.", "ejemplo": "Ese man le está echando los perros a la prima desde la novena.", "region": "Todo el país" },
-  { "id": "mamar-gallo", "dicho": "Mamar gallo", "significado": "Bromear, tomar del pelo a alguien.", "ejemplo": "Tranquilo, no se ponga bravo, que lo estoy mamando gallo.", "region": "Costa Caribe (ya se dice en todo el país)" },
+  { "id": "mamar-gallo", "dicho": "Mamar gallo", "significado": "Bromear, tomar del pelo a alguien.", "ejemplo": "Tranquilo, no se ponga bravo, que lo estoy mamando gallo.", "region": "Costa Caribe (costeño, ya se dice en todo el país)" },
   { "id": "hacer-la-vaca", "dicho": "Hacer la vaca", "significado": "Recoger plata entre varios para pagar algo.", "ejemplo": "Hagamos la vaca para el asado del sábado.", "region": "Todo el país" },
   { "id": "estar-en-la-olla", "dicho": "Estar en la olla", "significado": "Estar en una mala situación, sobre todo sin plata.", "ejemplo": "No puedo salir este fin, estoy en la olla hasta la quincena.", "region": "Todo el país" },
   { "id": "ponerse-las-pilas", "dicho": "Ponerse las pilas", "significado": "Esforzarse, estar atento y activo.", "ejemplo": "Póngase las pilas que el parcial es el lunes.", "region": "Todo el país" },
@@ -63,9 +63,9 @@
   { "id": "dios-le-da-pan-al-que-no-tiene-dientes", "dicho": "Dios le da pan al que no tiene dientes", "significado": "La suerte o las oportunidades a veces le llegan a quien no las sabe aprovechar.", "ejemplo": "Le regalaron una guitarra y no sabe tocar: Dios le da pan al que no tiene dientes.", "region": "Todo el país" },
   { "id": "sumerce", "dicho": "Sumercé", "significado": "Forma cariñosa y respetuosa de decir «usted» (de «su merced»).", "ejemplo": "¿Sumercé qué va a llevar, la papa o la mazorca?", "region": "Boyacá y Cundinamarca" },
   { "id": "ave-maria-pues", "dicho": "¡Ave María, pues!", "significado": "Exclamación paisa de sorpresa, admiración o susto.", "ejemplo": "¡Ave María, pues! ¿Usted se comió toda la bandeja?", "region": "Antioquia y Eje Cafetero (paisa)" },
-  { "id": "que-nota", "dicho": "¡Qué nota!", "significado": "Qué bueno, qué chévere.", "ejemplo": "Nos vamos para la playa el puente. ¡Qué nota!", "region": "Costa Caribe" },
+  { "id": "que-nota", "dicho": "¡Qué nota!", "significado": "Qué bueno, qué chévere.", "ejemplo": "Nos vamos para la playa el puente. ¡Qué nota!", "region": "Costa Caribe (costeño)" },
   { "id": "mira-ve", "dicho": "Mirá, ve", "significado": "Muletilla valluna para llamar la atención de alguien o reforzar lo que se dice, con voseo.", "ejemplo": "Mirá, ve, ¿vos sí vas a ir al partido del Cali?", "region": "Valle del Cauca" },
   { "id": "ala-mano", "dicho": "¡Ala, mano!", "significado": "Saludo o exclamación santandereana; «mano» es hermano o amigo.", "ejemplo": "¡Ala, mano! ¿Y usted cuándo llegó a Bucaramanga?", "region": "Santander" },
   { "id": "achichay", "dicho": "¡Achichay!", "significado": "¡Qué frío! Viene del quechua.", "ejemplo": "¡Achichay! A esta hora en Pasto no sale ni el perro.", "region": "Nariño" },
-  { "id": "chino", "dicho": "Chino", "significado": "Niño o muchacho joven.", "ejemplo": "Ese chino no se queda quieto ni un minuto.", "region": "Bogotá y Cundinamarca" }
+  { "id": "chino", "dicho": "Chino", "significado": "Niño o muchacho joven.", "ejemplo": "Ese chino no se queda quieto ni un minuto.", "region": "Bogotá y Cundinamarca (rolo)" }
 ]
