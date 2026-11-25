@@ -541,5 +541,145 @@
       "licencia": "CC BY-SA 4.0",
       "fuente": "https://commons.wikimedia.org/wiki/File:Arepa_Boyacense.jpg"
     }
+  },
+  {
+    "id": "chuleta-valluna",
+    "nombre": "Chuleta valluna",
+    "region": "Valle del Cauca",
+    "descripcion": "Lomo de cerdo aplanado, apanado y frito hasta quedar dorado y crocante. Se sirve con arroz, papas a la francesa, maduro y ensalada.",
+    "ingredientes": [
+      "4 filetes de lomo de cerdo",
+      "2 huevos",
+      "1 taza de harina de trigo",
+      "2 tazas de miga de pan o galleta molida",
+      "2 dientes de ajo machacados",
+      "1 cucharadita de comino",
+      "Sal, pimienta y aceite para freír",
+      "1 limón"
+    ],
+    "preparacion": [
+      "Aplana los filetes con un mazo hasta que queden delgados.",
+      "Adóbalos con ajo, comino, sal, pimienta y unas gotas de limón, y déjalos reposar 30 minutos.",
+      "Pasa cada filete por harina, luego por huevo batido y por último por la miga de pan.",
+      "Fríelos en aceite caliente, unos 4 minutos por lado, hasta que estén dorados.",
+      "Escúrrelos en papel absorbente y sírvelos con arroz, papas, maduro y limón."
+    ],
+    "imagen": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Chuleta_Valluna_-_Colombiana.jpg",
+      "autor": "Makike.cortes",
+      "licencia": "CC BY-SA 3.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Chuleta_Valluna_-_Colombiana.jpg"
+    }
+  },
+  {
+    "id": "caldo-de-costilla",
+    "nombre": "Caldo de costilla",
+    "region": "Todo el país (sobre todo al desayuno)",
+    "descripcion": "Caldo de costilla de res con papa, cebolla larga y cilantro. El levantamuertos clásico para el guayabo, con arepa y chocolate.",
+    "ingredientes": [
+      "1 kg de costilla de res en trozos",
+      "6 papas criollas o 3 papas pastusas en trozos",
+      "2 tallos de cebolla larga",
+      "2 dientes de ajo",
+      "1 manojo de cilantro picado",
+      "2,5 litros de agua",
+      "Sal y comino"
+    ],
+    "preparacion": [
+      "Pon la costilla en agua fría con la cebolla larga, el ajo y la sal, y cocina a fuego medio.",
+      "Retira la espuma que suba y cocina una hora y media, hasta que la carne esté blanda.",
+      "Agrega las papas y cocina 20 minutos más, hasta que estén suaves.",
+      "Ajusta la sal, agrega una pizca de comino y retira la cebolla.",
+      "Sirve bien caliente con bastante cilantro y arepa."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Caldo_de_costilla_Paisa.jpg/960px-Caldo_de_costilla_Paisa.jpg",
+      "autor": "Xemenendura",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Caldo_de_costilla_Paisa.jpg"
+    }
+  },
+  {
+    "id": "pescado-frito",
+    "nombre": "Pescado frito",
+    "region": "Costa Caribe",
+    "descripcion": "Mojarra o pargo rojo entero, frito hasta quedar crocante, servido con arroz con coco, patacones, ensalada y limón. El almuerzo de playa.",
+    "ingredientes": [
+      "4 mojarras o pargos rojos enteros, limpios",
+      "3 dientes de ajo machacados",
+      "2 limones",
+      "1/2 taza de harina de trigo",
+      "Sal y pimienta",
+      "Aceite suficiente para freír"
+    ],
+    "preparacion": [
+      "Hazle dos o tres cortes en diagonal a cada lado del pescado.",
+      "Adóbalo con ajo, limón, sal y pimienta por dentro y por fuera, y déjalo reposar 20 minutos.",
+      "Sécalo y pásalo por harina.",
+      "Fríelo en aceite bien caliente, unos 6 minutos por lado, hasta que la piel esté crocante.",
+      "Sírvelo con arroz con coco, patacones, ensalada y limón."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Pescado_frito-Ci%C3%A9naga%2C_Magdalena-20251206-WA0035.jpg/960px-Pescado_frito-Ci%C3%A9naga%2C_Magdalena-20251206-WA0035.jpg",
+      "autor": "Jdvillalobos",
+      "licencia": "CC BY-SA 4.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Pescado_frito-Ci%C3%A9naga,_Magdalena-20251206-WA0035.jpg"
+    }
+  },
+  {
+    "id": "cholado",
+    "nombre": "Cholado",
+    "region": "Valle del Cauca",
+    "descripcion": "Vaso de hielo raspado con frutas picadas, jarabes de colores, lechera y barquillo. El postre de la carretera a Jamundí para el calor caleño.",
+    "ingredientes": [
+      "2 tazas de hielo raspado",
+      "Frutas picadas: mango, papaya, banano, piña, fresa y kiwi",
+      "Jarabe de mora, maracuyá o colores",
+      "Leche condensada",
+      "Crema de leche o helado de vainilla",
+      "Barquillos y coco rallado para decorar"
+    ],
+    "preparacion": [
+      "Pon una capa de fruta picada en el fondo de un vaso grande.",
+      "Cúbrela con hielo raspado y báñala con jarabe.",
+      "Repite las capas de fruta, hielo y jarabe hasta llenar el vaso.",
+      "Termina con leche condensada, crema o helado, coco rallado y un barquillo.",
+      "Sírvelo de inmediato, antes de que se derrita el hielo."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Cholado_jamundi.jpg/960px-Cholado_jamundi.jpg",
+      "autor": "C arango",
+      "licencia": "Dominio público",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Cholado_jamundi.jpg"
+    }
+  },
+  {
+    "id": "sopa-de-mondongo",
+    "nombre": "Sopa de mondongo",
+    "region": "Todo el país",
+    "descripcion": "Sopa espesa de callo de res con carne de cerdo, papa, yuca, mazorca y hogao. En Antioquia es plato de almuerzo y en la Costa se hace como sancocho.",
+    "ingredientes": [
+      "1 kg de mondongo (callo de res) bien lavado",
+      "300 g de carne de cerdo en cubos",
+      "2 chorizos en rodajas",
+      "3 papas en cubos",
+      "300 g de yuca en trozos",
+      "1 mazorca en ruedas",
+      "Hogao: tomate, cebolla larga y ajo",
+      "Limón, cilantro, sal y comino"
+    ],
+    "preparacion": [
+      "Lava el mondongo con limón y sal, y cocínalo en agua hasta que esté blando (unas 2 horas, o 40 minutos en olla a presión).",
+      "Córtalo en tiras o cuadros pequeños y guarda el caldo.",
+      "Sofríe el cerdo y el chorizo con el hogao y el comino.",
+      "Agrega al caldo el mondongo, el sofrito, la papa, la yuca y la mazorca, y cocina hasta que todo esté blando y la sopa espese.",
+      "Sirve con cilantro, arroz, aguacate y limón."
+    ],
+    "imagen": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Barranquilla_-_Sancocho_de_mondongo.jpg/960px-Barranquilla_-_Sancocho_de_mondongo.jpg",
+      "autor": "Jdvillalobos",
+      "licencia": "CC BY 3.0",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Barranquilla_-_Sancocho_de_mondongo.jpg"
+    }
   }
 ]
