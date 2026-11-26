@@ -5,7 +5,8 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const TOLERANCIA = 0.006; // grados (~650 m); a 900 px de ancho un píxel son ~0.017°
-const CUANTIZACION = 1e4;
+const TOLERANCIA_ISLAS = 0.0003; // ~30 m: San Andrés y Providencia se dibujan ampliadas 20 veces
+const CUANTIZACION = 1e5;
 
 const sinTildes = (s) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
 export const idDepartamento = (nombre) =>
@@ -42,9 +43,11 @@ function simplificarArco(p, tol) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const topo = JSON.parse(readFileSync(process.argv[2], 'utf8'));
   const { scale: [sx, sy], translate: [tx, ty] } = topo.transform;
-  const arcos = topo.arcs.map((arco) => {
+  const geometrias = topo.objects[Object.keys(topo.objects)[0]].geometries;
+  const deIslas = new Set(geometrias.filter((g) => idDepartamento(g.properties.shapeName) === 'san-andres').flatMap((g) => g.arcs.flat(2)).map((i) => (i < 0 ? ~i : i)));
+  const arcos = topo.arcs.map((arco, i) => {
     let x = 0, y = 0;
-    return simplificarArco(arco.map(([dx, dy]) => [(x += dx) * sx + tx, (y += dy) * sy + ty]), TOLERANCIA);
+    return simplificarArco(arco.map(([dx, dy]) => [(x += dx) * sx + tx, (y += dy) * sy + ty]), deIslas.has(i) ? TOLERANCIA_ISLAS : TOLERANCIA);
   });
   // Cada tramo de río es un arco propio, después de los de las fronteras.
   const rios = Object.entries(JSON.parse(readFileSync(process.argv[3], 'utf8'))).map(([id, tramos]) => ({

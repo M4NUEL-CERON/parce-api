@@ -417,11 +417,20 @@
     const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const REGIONES = { Caribe: '#ffcd00', Andina: '#d7263d', Pacífica: '#1f8a5b', Orinoquía: '#f08a24', Amazonía: '#0f6e6e', Insular: '#0b3d91' };
 
-    // Proyección equirectangular centrada en Colombia; San Andrés se amplía y se acerca en un recuadro.
+    // Proyección equirectangular centrada en Colombia. Las islas se amplían 20 veces y se acercan,
+    // cada una en su recuadro sobre el Caribe (a escala real serían un punto de 12 km).
     const LON0 = -73.2, LAT0 = 4.2, K = Math.cos(LAT0 * Math.PI / 180);
-    const ISLAS = { centro: [-81.54, 12.94], escala: 4, destino: [-78.35, 11.05] };
+    const AMPLIA = 20;
+    const ISLAS = [
+      { rotulo: ['San Andrés'], centro: [-81.711, 12.538], destino: [-78.9, 10.75] },
+      { rotulo: ['Providencia y', 'Santa Catalina'], centro: [-81.372, 13.357], destino: [-77.2, 10.72] },
+    ];
+    const RECUADRO = { ancho: 1.5, alto: 3.4, centroY: 10.9 }; // en grados, mismo tamaño para las dos
     const proyectar = ([lon, lat], islas) => {
-      if (islas) { lon = ISLAS.destino[0] + (lon - ISLAS.centro[0]) * ISLAS.escala; lat = ISLAS.destino[1] + (lat - ISLAS.centro[1]) * ISLAS.escala; }
+      if (islas) {
+        const i = ISLAS[lat > 13 ? 1 : 0]; // Providencia y Santa Catalina están al norte del paralelo 13
+        lon = i.destino[0] + (lon - i.centro[0]) * AMPLIA; lat = i.destino[1] + (lat - i.centro[1]) * AMPLIA;
+      }
       return [(lon - LON0) * K, lat - LAT0];
     };
 
@@ -548,10 +557,28 @@
       const pieza = (id) => piezas.find((p) => p.d.id === id);
 
       // Recuadro punteado alrededor de San Andrés ampliado
-      const [cx, cy] = proyectar(ISLAS.destino), ancho = 1.05, alto = 2.15;
-      const recuadro = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints([[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([x, y]) => new THREE.Vector3(cx + x * ancho, cy + y * alto, 0.01))), new THREE.LineDashedMaterial({ dashSize: 0.18, gapSize: 0.12 }));
-      recuadro.computeLineDistances();
-      escena.add(recuadro);
+      // Recuadros punteados de las islas, con su nombre escrito sobre el mar
+      const islas = new THREE.Group(), matRecuadro = new THREE.LineDashedMaterial({ dashSize: 0.14, gapSize: 0.1 }), rotulos = [];
+      for (const i of ISLAS) {
+        const [cx, cy] = proyectar([i.destino[0], RECUADRO.centroY]), a = RECUADRO.ancho * K / 2, h = RECUADRO.alto / 2;
+        const caja = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints([[-a, -h], [a, -h], [a, h], [-a, h]].map(([x, y]) => new THREE.Vector3(cx + x, cy + y, 0.01))), matRecuadro);
+        caja.computeLineDistances();
+        const lienzoTexto = document.createElement('canvas'); lienzoTexto.width = 512; lienzoTexto.height = 192;
+        const textura = new THREE.CanvasTexture(lienzoTexto); textura.anisotropy = 4;
+        const rotulo = new THREE.Mesh(new THREE.PlaneGeometry(2 * a * 0.92, 2 * a * 0.92 * 192 / 512), new THREE.MeshBasicMaterial({ map: textura, transparent: true, depthWrite: false }));
+        rotulo.position.set(cx, cy + h - a * 0.92 * 192 / 512 - 0.05, 0.012);
+        rotulos.push({ lienzoTexto, textura, lineas: i.rotulo });
+        islas.add(caja, rotulo);
+      }
+      escena.add(islas);
+      const pintarRotulos = (color) => rotulos.forEach(({ lienzoTexto: c, textura, lineas }) => {
+        const g = c.getContext('2d');
+        g.clearRect(0, 0, c.width, c.height);
+        g.fillStyle = color; g.textAlign = 'center'; g.textBaseline = 'middle';
+        g.font = '800 58px "Bricolage Grotesque", system-ui, sans-serif';
+        lineas.forEach((t, n) => g.fillText(t, c.width / 2, c.height / 2 + (n - (lineas.length - 1) / 2) * 64));
+        textura.needsUpdate = true;
+      });
 
       // Ríos con grosor real en píxeles
       const matRio = new LineMaterial({ linewidth: 2.6, worldUnits: false, transparent: true });
@@ -579,7 +606,8 @@
 
       function colores() { // toma la paleta de la página, también en modo oscuro
         const tarjeta = new THREE.Color(css('--card')), fg = new THREE.Color(css('--fg'));
-        tinta.color.set(fg); recuadro.material.color.set(fg); matPalo.color.set(fg);
+        tinta.color.set(fg); matRecuadro.color.set(fg); matPalo.color.set(fg);
+        document.fonts.ready.then(() => pintarRotulos(css('--fg')));
         matCabeza.color.set(css('--rojo')); matRio.color.set(css('--azul'));
         for (const p of piezas) { p.suave = tarjeta.clone().lerp(p.base, 0.42); p.ladoColor = p.base.clone().lerp(fg, 0.45); }
       }
@@ -632,10 +660,10 @@
         elegir(p && p.d.id !== elegida ? p.d.id : null);
       });
 
-      // Encuadre: centro y radio de todo el mapa (incluido el recuadro de San Andrés)
+      // Encuadre: todo el mapa, incluidos los recuadros de las islas
       const caja = new THREE.Box3();
       piezas.forEach((p) => caja.expandByObject(p.malla));
-      caja.expandByObject(recuadro);
+      caja.expandByObject(islas);
       const centro = caja.getCenter(new THREE.Vector3()).setZ(0);
       const esquinas = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => new THREE.Vector3(i & 1 ? caja.max.x : caja.min.x, i & 2 ? caja.max.y : caja.min.y, i & 4 ? caja.max.z : 0));
       const DIRECCION = new THREE.Vector3(0, -0.62, 0.78).normalize(); // inclinación desde el sur
