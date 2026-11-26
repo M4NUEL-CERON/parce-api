@@ -1,6 +1,6 @@
 # Parce API 🇨🇴
 
-API pública y gratis de dichos y platos típicos colombianos (y pronto comidas del mundo). Sin llave, sin registro y con CORS abierto.
+API pública y gratis de dichos, platos típicos y geografía de Colombia (departamentos, municipios y ríos), con un mapa 3D en la página. Sin llave, sin registro y con CORS abierto.
 
 **[Sitio en vivo](https://parce-api.vercel.app)** · **[Probar la API](https://parce-api.vercel.app/api/dichos/hoy)**
 

@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Parce API · Dichos y platos colombianos</title>
-  <meta name="description" content="API pública y gratis de dichos y platos típicos colombianos. Aprende a hablar y a cocinar como un parcero.">
+  <title>Parce API · Dichos, platos y mapa de Colombia</title>
+  <meta name="description" content="API pública y gratis de dichos, platos típicos y geografía de Colombia: departamentos, municipios y ríos, con un mapa 3D.">
+  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/" } }</script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦜</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,6 +108,41 @@
     .credito { margin: 24px 0 0; font-size: .8rem; color: var(--muted); }
     .cerrar { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; padding: 0; font-size: 1.3rem; line-height: 1; }
 
+    /* Mapa */
+    .mapa { display: grid; grid-template-columns: 1.45fr 1fr; gap: 28px; align-items: start; }
+    .lienzo { position: relative; aspect-ratio: 5 / 6; background: var(--card); border: 3px solid var(--fg); border-radius: 28px; box-shadow: var(--sombra); overflow: hidden; }
+    .lienzo canvas { display: block; width: 100%; height: 100%; cursor: grab; }
+    .lienzo canvas.sobre { cursor: pointer; }
+    .lienzo .aviso { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--muted); }
+    .flotante { position: absolute; left: 0; top: 0; pointer-events: none; background: var(--fg); color: var(--bg); padding: 8px 14px; border-radius: 14px; font-size: .9rem; line-height: 1.3; white-space: nowrap; opacity: 0; transition: opacity .12s; }
+    .flotante.ver { opacity: 1; }
+    .flotante strong { display: block; font-size: 1rem; }
+    .controles { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-top: 18px; }
+    .alternar { display: inline-flex; gap: 8px; }
+    .alternar .btn { padding: 8px 16px; font-size: .92rem; }
+    .alternar .btn[aria-pressed="true"] { background: var(--amarillo); color: #1a1714; }
+    .leyenda { display: flex; flex-wrap: wrap; gap: 6px 14px; list-style: none; margin: 0; padding: 0; font-size: .88rem; color: var(--muted); }
+    .leyenda i { display: inline-block; width: 12px; height: 12px; border-radius: 4px; border: 1.5px solid var(--fg); margin-right: 6px; vertical-align: -1px; }
+
+    .ficha { background: var(--card); border: 3px solid var(--fg); border-radius: 24px; padding: 26px; box-shadow: var(--sombra); }
+    .ficha label { display: block; font-weight: 800; font-size: .9rem; margin-bottom: 8px; }
+    .ficha select { width: 100%; font: inherit; padding: 10px 16px; border: 2.5px solid var(--fg); border-radius: 999px; background: var(--card); color: var(--fg); margin-bottom: 22px; }
+    .ficha select:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+    .ficha h3 { font-size: clamp(1.7rem, 3vw, 2.2rem); line-height: 1.05; margin: 10px 0 4px; text-wrap: balance; }
+    .ficha .capital { color: var(--muted); margin: 0 0 20px; }
+    .cifras { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; margin: 0 0 22px; }
+    .cifras div { border-top: 2px solid var(--line); padding-top: 8px; }
+    .cifras dt { font-size: .8rem; color: var(--muted); }
+    .cifras dd { margin: 0; font-weight: 800; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+    .ficha h4 { margin: 0 0 10px; font-size: 1rem; }
+    .etiquetas { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; padding: 0; list-style: none; }
+    .etiquetas li { font-size: .82rem; font-weight: 800; padding: 4px 12px; border-radius: 999px; border: 2px solid var(--azul); color: var(--azul); }
+    .poblados { list-style: none; margin: 0 0 22px; padding: 0; }
+    .poblados li { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: .95rem; }
+    .poblados span { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .ficha .api { font: .8rem "JetBrains Mono", monospace; color: var(--muted); overflow-wrap: anywhere; }
+    .ficha .api a { color: var(--azul); }
+
     /* Devs */
     .devs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
     .endpoints { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
@@ -126,7 +162,8 @@
     .toast.ver { transform: translate(-50%, 0); }
 
     @media (max-width: 800px) {
-      .hero, .devs { grid-template-columns: 1fr; gap: 40px; }
+      .hero, .devs, .mapa { grid-template-columns: 1fr; gap: 40px; }
+      .lienzo { aspect-ratio: 4 / 5; }
       .hero { padding-top: 16px; }
       .destacado { transform: none; padding: 28px 22px; margin-top: 30px; }
       .sombrero { width: 120px; top: -52px; right: -6px; }
@@ -143,7 +180,7 @@
   <div class="wrap">
     <nav>
       <span>🦜 Parce API</span>
-      <span class="links"><a href="#dichos">Dichos</a><a href="#platos">Platos</a><a href="#devs">Para devs</a><a href="https://github.com/M4NUEL-CERON/parce-api">GitHub</a></span>
+      <span class="links"><a href="#dichos">Dichos</a><a href="#platos">Platos</a><a href="#mapa">Mapa</a><a href="#devs">Para devs</a><a href="https://github.com/M4NUEL-CERON/parce-api">GitHub</a></span>
     </nav>
 
     <header class="hero">
@@ -220,6 +257,31 @@
       </div>
     </dialog>
 
+    <section id="mapa">
+      <h2>El mapa de Colombia 🗺️</h2>
+      <p class="sub">Los 32 departamentos y Bogotá, con sus capitales y ríos principales. Pase por encima de uno para levantarlo y tóquelo para ver sus datos.</p>
+      <div class="mapa">
+        <div>
+          <div class="lienzo" id="lienzo">
+            <p class="aviso" id="aviso-mapa">Cargando el mapa…</p>
+            <div class="flotante" id="flotante" aria-hidden="true"></div>
+          </div>
+          <div class="controles">
+            <div class="alternar" role="group" aria-label="Altura de los departamentos">
+              <button class="btn" aria-pressed="true" data-modo="plano">Plano</button>
+              <button class="btn" aria-pressed="false" data-modo="poblacion">Por población</button>
+            </div>
+            <ul class="leyenda" id="leyenda"></ul>
+          </div>
+        </div>
+        <aside class="ficha" aria-live="polite">
+          <label for="depto">Departamento</label>
+          <select id="depto"><option value="">Todo el país</option></select>
+          <div id="ficha"></div>
+        </aside>
+      </div>
+    </section>
+
     <section id="devs">
       <h2>Para devs 👩‍💻</h2>
       <p class="sub">Sin llave, sin registro, con CORS abierto. Toque un endpoint y pruébelo de una.</p>
@@ -290,6 +352,7 @@
       ['/api', 'recursos'], ['/api/dichos/hoy', 'del día'], ['/api/dichos/random', 'al azar'],
       ['/api/dichos?q=plata', 'buscar'], ['/api/dichos/no-dar-papaya', 'por id'],
       ['/api/platos/hoy', 'plato del día'], ['/api/platos?region=tolima', 'por región'], ['/api/platos/ajiaco', 'receta'],
+      ['/api/departamentos/antioquia', 'departamento'], ['/api/municipios?departamento=quindio', 'municipios'], ['/api/rios/magdalena', 'río'],
     ];
 
     const llenar = (el, items) => el.replaceChildren(...items.map((t) => Object.assign(document.createElement('li'), { textContent: t })));
@@ -345,6 +408,285 @@
         probar('/api/dichos/hoy', document.querySelector('.endpoints li:nth-child(2) button'));
       } catch { $('dicho').textContent = 'Uy, no cargó. Recargue la página.'; }
     })();
+  </script>
+
+  <script type="module">
+    const $ = (id) => document.getElementById(id);
+    const num = new Intl.NumberFormat('es-CO');
+    const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+    const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const REGIONES = { Caribe: '#ffcd00', Andina: '#d7263d', Pacífica: '#1f8a5b', Orinoquía: '#f08a24', Amazonía: '#0f6e6e', Insular: '#0b3d91' };
+
+    // Proyección equirectangular centrada en Colombia; San Andrés se amplía y se acerca en un recuadro.
+    const LON0 = -73.2, LAT0 = 4.2, K = Math.cos(LAT0 * Math.PI / 180);
+    const ISLAS = { centro: [-81.54, 12.94], escala: 4, destino: [-78.35, 11.05] };
+    const proyectar = ([lon, lat], islas) => {
+      if (islas) { lon = ISLAS.destino[0] + (lon - ISLAS.centro[0]) * ISLAS.escala; lat = ISLAS.destino[1] + (lat - ISLAS.centro[1]) * ISLAS.escala; }
+      return [(lon - LON0) * K, lat - LAT0];
+    };
+
+    function decodificar(topo) {
+      const { scale: [sx, sy], translate: [tx, ty] } = topo.transform;
+      const arcos = topo.arcs.map((a) => { let x = 0, y = 0; return a.map(([dx, dy]) => [(x += dx) * sx + tx, (y += dy) * sy + ty]); });
+      const arco = (i) => (i < 0 ? arcos[~i].slice().reverse() : arcos[i]);
+      return (indices) => indices.flatMap((i, k) => (k ? arco(i).slice(1) : arco(i)));
+    }
+
+    let ficha = () => {}; // se reemplaza cuando cargan los datos
+    const cacheMunis = {};
+
+    async function iniciar() {
+      const [topo, deptos, rios, capitales] = await Promise.all(
+        ['/mapa/colombia.topo.json', '/api/departamentos', '/api/rios', '/api/municipios?capital=true'].map((u) => fetch(u).then((r) => r.json())),
+      );
+      const porId = Object.fromEntries(deptos.map((d) => [d.id, d]));
+      const rioNombre = Object.fromEntries(rios.map((r) => [r.id, r.nombre]));
+      const total = { pob: deptos.reduce((s, d) => s + d.poblacion_2026, 0), sup: deptos.reduce((s, d) => s + d.superficie_km2, 0), munis: deptos.reduce((s, d) => s + d.municipios, 0) };
+
+      $('depto').append(...[...deptos].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')).map((d) => new Option(d.nombre, d.id)));
+      $('leyenda').replaceChildren(...Object.entries(REGIONES).map(([r, c]) => {
+        const li = document.createElement('li'); li.innerHTML = `<i style="background:${c}"></i>`; li.append(r); return li;
+      }));
+
+      ficha = async (id) => {
+        $('depto').value = id ?? '';
+        const f = $('ficha');
+        const cifra = (t, v) => `<div><dt>${t}</dt><dd>${v}</dd></div>`;
+        if (!id) {
+          f.innerHTML = `<span class="chip">Colombia</span><h3>33 territorios</h3><p class="capital">32 departamentos y el distrito capital, Bogotá.</p>
+            <dl class="cifras">${cifra('Población 2026', num.format(total.pob))}${cifra('Superficie', num.format(total.sup) + ' km²')}${cifra('Municipios', num.format(total.munis))}${cifra('Ríos en el mapa', rios.length)}</dl>
+            <p class="api">Pruebe: <a href="/api/departamentos">/api/departamentos</a></p>`;
+          return;
+        }
+        const d = porId[id];
+        f.innerHTML = `<span class="region"></span><h3></h3><p class="capital"></p>
+          <dl class="cifras">${cifra('Población 2026', num.format(d.poblacion_2026))}${cifra('Superficie', num.format(d.superficie_km2) + ' km²')}${cifra('Habitantes por km²', num.format(Math.round(d.poblacion_2026 / d.superficie_km2)))}${cifra('Municipios', d.municipios)}</dl>
+          <h4>Ríos principales</h4><ul class="etiquetas"></ul>
+          <h4>Municipios más poblados</h4><ul class="poblados"><li>Cargando…</li></ul>
+          <p class="api">Código DANE ${d.codigo} · <a href="/api/departamentos/${d.id}">/api/departamentos/${d.id}</a></p>`;
+        f.querySelector('.region').textContent = 'Región ' + d.region;
+        f.querySelector('h3').textContent = d.nombre;
+        f.querySelector('.capital').textContent = d.id === 'bogota' ? 'Capital de Colombia' : 'Capital: ' + d.capital;
+        const ul = f.querySelector('.etiquetas');
+        if (d.rios.length) ul.replaceChildren(...d.rios.map((r) => Object.assign(document.createElement('li'), { textContent: rioNombre[r] })));
+        else ul.outerHTML = '<p class="capital">Ninguno de los ríos del mapa pasa por aquí.</p>';
+        try {
+          const munis = cacheMunis[id] ??= await fetch('/api/municipios?departamento=' + id).then((r) => r.json());
+          if ($('depto').value !== id) return; // el usuario ya eligió otro
+          f.querySelector('.poblados').replaceChildren(...[...munis].sort((a, b) => b.poblacion_2026 - a.poblacion_2026).slice(0, 5).map((m) => {
+            const li = document.createElement('li'); li.append(m.nombre + (m.capital ? ' ★' : ''));
+            li.append(Object.assign(document.createElement('span'), { textContent: num.format(m.poblacion_2026) })); return li;
+          }));
+        } catch { f.querySelector('.poblados').innerHTML = '<li>No cargaron los municipios.</li>'; }
+      };
+      ficha(null);
+
+      let THREE, OrbitControls, Line2, LineMaterial, LineGeometry;
+      try {
+        [THREE, { OrbitControls }, { Line2 }, { LineMaterial }, { LineGeometry }] = await Promise.all([
+          import('three'), import('three/addons/controls/OrbitControls.js'), import('three/addons/lines/Line2.js'),
+          import('three/addons/lines/LineMaterial.js'), import('three/addons/lines/LineGeometry.js'),
+        ]);
+      } catch { $('aviso-mapa').textContent = 'No se pudo cargar el mapa 3D. Use la lista de departamentos.'; return; }
+
+      const lienzo = $('lienzo');
+      let renderer;
+      try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); }
+      catch { $('aviso-mapa').textContent = 'Su navegador no soporta WebGL. Use la lista de departamentos.'; return; }
+      $('aviso-mapa').remove();
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.domElement.setAttribute('role', 'img');
+      renderer.domElement.setAttribute('aria-label', 'Mapa 3D de Colombia por departamentos. Use la lista de departamentos para navegarlo con el teclado.');
+      lienzo.prepend(renderer.domElement);
+
+      const escena = new THREE.Scene();
+      const camara = new THREE.PerspectiveCamera(32, 1, 0.1, 200);
+      camara.up.set(0, 0, 1);
+      const controles = new OrbitControls(camara, renderer.domElement);
+      Object.assign(controles, { enableZoom: false, enablePan: false, enableDamping: true, minPolarAngle: 0.25, maxPolarAngle: 1.05, minAzimuthAngle: -0.7, maxAzimuthAngle: 0.7 });
+      const tactil = matchMedia('(pointer: coarse)').matches;
+      if (tactil) { controles.enabled = false; renderer.domElement.style.touchAction = 'pan-y'; } // en el celular el dedo hace scroll, no gira
+
+      escena.add(new THREE.HemisphereLight(0xffffff, 0x8a7a60, 1.6));
+      const sol = new THREE.DirectionalLight(0xffffff, 2.2);
+      sol.position.set(-9, 11, 20); // de arriba a la izquierda: la sombra cae abajo a la derecha, como las de la página
+      sol.castShadow = true;
+      Object.assign(sol.shadow.camera, { left: -11, right: 11, top: 12, bottom: -12, near: 1, far: 60 });
+      sol.shadow.mapSize.set(2048, 2048);
+      sol.shadow.bias = -0.0005;
+      escena.add(sol);
+      const piso = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.ShadowMaterial({ opacity: 0.22 }));
+      piso.receiveShadow = true;
+      escena.add(piso);
+
+      const anillo = decodificar(topo);
+      const ALTO = 0.14;
+      const maxPob = Math.max(...deptos.map((d) => d.poblacion_2026));
+      const tinta = new THREE.LineBasicMaterial();
+      const piezas = [];
+      for (const g of topo.objects.departamentos.geometries) {
+        const d = porId[g.properties.id], islas = d.id === 'san-andres';
+        const formas = (g.type === 'Polygon' ? [g.arcs] : g.arcs).map(([ext, ...huecos]) => {
+          const limpio = (r) => anillo(r).map((p) => proyectar(p, islas)).filter((p, i, a) => i === 0 || p[0] !== a[i - 1][0] || p[1] !== a[i - 1][1]).slice(0, -1);
+          const forma = new THREE.Shape(limpio(ext).map(([x, y]) => new THREE.Vector2(x, y)));
+          forma.holes = huecos.map((h) => new THREE.Path(limpio(h).map(([x, y]) => new THREE.Vector2(x, y))));
+          return forma;
+        });
+        const base = new THREE.Color(REGIONES[d.region]);
+        const tapa = new THREE.MeshStandardMaterial({ roughness: 0.85 }), lado = new THREE.MeshStandardMaterial({ roughness: 0.9 });
+        const malla = new THREE.Mesh(new THREE.ExtrudeGeometry(formas, { depth: ALTO, bevelEnabled: false }), [tapa, lado]);
+        malla.castShadow = malla.receiveShadow = true;
+        for (const f of formas) { // contorno de tinta sobre la tapa, como los bordes de la página
+          const borde = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(f.getPoints().map((p) => new THREE.Vector3(p.x, p.y, ALTO + 0.002))), tinta);
+          malla.add(borde);
+        }
+        escena.add(malla);
+        piezas.push({ d, malla, tapa, lado, base, z: 0, escalaZ: 1 });
+      }
+      const pieza = (id) => piezas.find((p) => p.d.id === id);
+
+      // Recuadro punteado alrededor de San Andrés ampliado
+      const [cx, cy] = proyectar(ISLAS.destino), ancho = 1.05, alto = 2.15;
+      const recuadro = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints([[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([x, y]) => new THREE.Vector3(cx + x * ancho, cy + y * alto, 0.01))), new THREE.LineDashedMaterial({ dashSize: 0.18, gapSize: 0.12 }));
+      recuadro.computeLineDistances();
+      escena.add(recuadro);
+
+      // Ríos con grosor real en píxeles
+      const matRio = new LineMaterial({ linewidth: 2.6, worldUnits: false, transparent: true });
+      const capaRios = new THREE.Group();
+      for (const g of topo.objects.rios.geometries) for (const linea of g.arcs) {
+        const geo = new LineGeometry();
+        geo.setPositions(anillo(linea).flatMap((p) => [...proyectar(p), ALTO + 0.006]));
+        capaRios.add(new Line2(geo, matRio));
+      }
+      escena.add(capaRios);
+
+      // Capitales: un alfiler por capital (Bogotá sirve a Cundinamarca y al Distrito)
+      const cabeza = new THREE.SphereGeometry(0.085, 16, 12), palo = new THREE.CylinderGeometry(0.018, 0.018, 0.26, 8).rotateX(Math.PI / 2).translate(0, 0, 0.13);
+      const matCabeza = new THREE.MeshStandardMaterial({ roughness: 0.4 }), matPalo = new THREE.MeshStandardMaterial();
+      const alfileres = capitales.map((c) => {
+        const dueño = pieza(c.departamento);
+        const g = new THREE.Group();
+        g.add(new THREE.Mesh(palo, matPalo));
+        const bola = new THREE.Mesh(cabeza, matCabeza); bola.position.z = 0.27; bola.castShadow = true; g.add(bola);
+        const [x, y] = proyectar([c.lon, c.lat], c.departamento === 'san-andres');
+        g.position.set(x, y, 0);
+        escena.add(g);
+        return { g, dueño };
+      });
+
+      function colores() { // toma la paleta de la página, también en modo oscuro
+        const tarjeta = new THREE.Color(css('--card')), fg = new THREE.Color(css('--fg'));
+        tinta.color.set(fg); recuadro.material.color.set(fg); matPalo.color.set(fg);
+        matCabeza.color.set(css('--rojo')); matRio.color.set(css('--azul'));
+        for (const p of piezas) { p.suave = tarjeta.clone().lerp(p.base, 0.42); p.ladoColor = p.base.clone().lerp(fg, 0.45); }
+      }
+      colores();
+      matchMedia('(prefers-color-scheme: dark)').addEventListener('change', colores);
+
+      let modo = 'plano', sobre = null, elegida = null;
+      document.querySelectorAll('[data-modo]').forEach((b) => b.onclick = () => {
+        modo = b.dataset.modo;
+        document.querySelectorAll('[data-modo]').forEach((x) => x.setAttribute('aria-pressed', x === b));
+      });
+
+      function elegir(id) {
+        elegida = id || null;
+        ficha(elegida);
+      }
+      $('depto').onchange = (e) => elegir(e.target.value);
+
+      const rayo = new THREE.Raycaster(), puntero = new THREE.Vector2();
+      const tocar = (e) => {
+        const r = renderer.domElement.getBoundingClientRect();
+        puntero.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+        rayo.setFromCamera(puntero, camara);
+        const hit = rayo.intersectObjects(piezas.map((p) => p.malla), false)[0];
+        return hit && piezas.find((p) => p.malla === hit.object);
+      };
+      renderer.domElement.addEventListener('pointermove', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        const p = tocar(e);
+        sobre = p?.d.id ?? null;
+        renderer.domElement.classList.toggle('sobre', !!p);
+        const fl = $('flotante');
+        fl.classList.toggle('ver', !!p);
+        if (p) {
+          fl.innerHTML = '<strong></strong><span></span>';
+          fl.firstChild.textContent = p.d.nombre;
+          fl.lastChild.textContent = p.d.id === 'bogota' ? 'Distrito capital' : p.d.capital;
+          const r = lienzo.getBoundingClientRect();
+          fl.style.transform = `translate(${Math.min(e.clientX - r.left + 16, r.width - fl.offsetWidth - 8)}px, ${e.clientY - r.top + 16}px)`;
+        }
+      });
+      const soltar = () => { sobre = null; $('flotante').classList.remove('ver'); renderer.domElement.classList.remove('sobre'); };
+      renderer.domElement.addEventListener('pointerleave', soltar);
+      addEventListener('scroll', soltar, { passive: true }); // con scroll el puntero queda sobre otro lugar
+      let inicio = null;
+      renderer.domElement.addEventListener('pointerdown', (e) => { inicio = [e.clientX, e.clientY]; });
+      renderer.domElement.addEventListener('pointerup', (e) => {
+        if (!inicio || Math.hypot(e.clientX - inicio[0], e.clientY - inicio[1]) > 6) return; // fue un giro, no un clic
+        const p = tocar(e);
+        elegir(p && p.d.id !== elegida ? p.d.id : null);
+      });
+
+      // Encuadre: centro y radio de todo el mapa (incluido el recuadro de San Andrés)
+      const caja = new THREE.Box3();
+      piezas.forEach((p) => caja.expandByObject(p.malla));
+      caja.expandByObject(recuadro);
+      const centro = caja.getCenter(new THREE.Vector3()).setZ(0);
+      const esquinas = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => new THREE.Vector3(i & 1 ? caja.max.x : caja.min.x, i & 2 ? caja.max.y : caja.min.y, i & 4 ? caja.max.z : 0));
+      const DIRECCION = new THREE.Vector3(0, -0.62, 0.78).normalize(); // inclinación desde el sur
+      new ResizeObserver(() => {
+        const { clientWidth: w, clientHeight: h } = lienzo;
+        renderer.setSize(w, h, false);
+        camara.aspect = w / h;
+        camara.updateProjectionMatrix();
+        // Acerca o aleja hasta que las esquinas del mapa ocupen el 97% del lienzo
+        controles.target.copy(centro);
+        let distancia = 30;
+        for (let i = 0; i < 6; i++) {
+          camara.position.copy(centro).addScaledVector(DIRECCION, distancia);
+          camara.lookAt(centro);
+          camara.updateMatrixWorld();
+          const borde = Math.max(...esquinas.map((v) => { const p = v.clone().project(camara); return Math.max(Math.abs(p.x), Math.abs(p.y)); }));
+          distancia *= borde / 0.97;
+        }
+        matRio.resolution.set(w, h);
+      }).observe(lienzo);
+
+      let visible = true;
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(lienzo);
+      const suave = (a, b, k) => (quieto ? b : a + (b - a) * k);
+      const color = new THREE.Color();
+      renderer.setAnimationLoop(() => {
+        if (!visible) return;
+        controles.update();
+        for (const p of piezas) {
+          const activa = p.d.id === sobre || p.d.id === elegida;
+          p.z = suave(p.z, p.d.id === elegida ? 0.55 : p.d.id === sobre ? 0.32 : 0, 0.16);
+          p.escalaZ = suave(p.escalaZ, modo === 'poblacion' ? 1 + 16 * Math.sqrt(p.d.poblacion_2026 / maxPob) : 1, 0.1);
+          p.malla.position.z = p.z;
+          p.malla.scale.z = p.escalaZ;
+          p.tapa.color.lerp(color.copy(activa ? p.base : p.suave), quieto ? 1 : 0.2);
+          p.lado.color.copy(p.ladoColor);
+        }
+        for (const a of alfileres) a.g.position.z = a.dueño.z + ALTO * a.dueño.escalaZ;
+        matRio.opacity = suave(matRio.opacity, modo === 'plano' ? 1 : 0, 0.15);
+        capaRios.visible = matRio.opacity > 0.02;
+        renderer.render(escena, camara);
+      });
+    }
+
+    // Three.js solo se descarga cuando el mapa está por aparecer en pantalla
+    const vigia = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      vigia.disconnect();
+      iniciar().catch(() => { const a = $('aviso-mapa'); if (a) a.textContent = 'Uy, el mapa no cargó. Recargue la página.'; });
+    }, { rootMargin: '600px' });
+    vigia.observe($('mapa'));
   </script>
 </body>
 </html>
