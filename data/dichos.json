@@ -82,5 +82,20 @@
   { "id": "hablar-golpeado", "dicho": "Hablar golpeado", "significado": "Hablar fuerte y directo, como se habla en Santander, sin que sea pelea.", "ejemplo": "Tranquilo, no está bravo: así hablan golpeado en Bucaramanga.", "region": "Santander (santandereano)" },
   { "id": "atatay", "dicho": "¡Atatay!", "significado": "¡Qué asco! Viene del quechua.", "ejemplo": "¡Atatay! Esa leche ya está cortada.", "region": "Nariño (pastuso)" },
   { "id": "ananay", "dicho": "¡Ananay!", "significado": "¡Qué bonito! Viene del quechua.", "ejemplo": "¡Ananay, el carnaval de Negros y Blancos este año!", "region": "Nariño (pastuso)" },
-  { "id": "guagua", "dicho": "Guagua", "significado": "Bebé o niño pequeño. Viene del quechua.", "ejemplo": "La guagua ya está dormida, hablen pasito.", "region": "Nariño (pastuso)" }
+  { "id": "guagua", "dicho": "Guagua", "significado": "Bebé o niño pequeño. Viene del quechua.", "ejemplo": "La guagua ya está dormida, hablen pasito.", "region": "Nariño (pastuso)" },
+  { "id": "ser-codo", "dicho": "Ser codo", "significado": "Ser tacaño, no gustarle gastar plata.", "ejemplo": "No le pida que invite, que ese man es más codo que nadie.", "region": "Todo el país" },
+  { "id": "comer-callado", "dicho": "Comer callado", "significado": "Disfrutar algo o salir con alguien sin contarle a nadie.", "ejemplo": "Nadie sabía que eran novios; estaban comiendo callados.", "region": "Todo el país" },
+  { "id": "estar-en-la-jugada", "dicho": "Estar en la jugada", "significado": "Estar atento y enterado de lo que pasa.", "ejemplo": "Hay que estar en la jugada, que las inscripciones abren hoy.", "region": "Todo el país" },
+  { "id": "llevar-del-bulto", "dicho": "Llevar del bulto", "significado": "Llevar la peor parte de una situación.", "ejemplo": "Todos se volaron de clase, pero el que llevó del bulto fui yo.", "region": "Todo el país" },
+  { "id": "ponerse-la-diez", "dicho": "Ponerse la diez", "significado": "Esforzarse al máximo o ser generoso, como el número diez del equipo.", "ejemplo": "Mi tía se puso la diez con el almuerzo de cumpleaños.", "region": "Todo el país" },
+  { "id": "pelar-el-cobre", "dicho": "Pelar el cobre", "significado": "Mostrar cómo es uno en realidad, casi siempre lo malo.", "ejemplo": "Parecía muy decente, pero en la fiesta peló el cobre.", "region": "Todo el país" },
+  { "id": "echarle-cabeza", "dicho": "Echarle cabeza", "significado": "Pensar mucho en algo antes de decidir.", "ejemplo": "Déjeme echarle cabeza a la propuesta y mañana le digo.", "region": "Todo el país" },
+  { "id": "tumbar", "dicho": "Tumbar", "significado": "Estafar o robar a alguien con engaños. «Me tumbaron» es me estafaron.", "ejemplo": "Compró el celular por internet y lo tumbaron: le llegó una piedra.", "region": "Todo el país" },
+  { "id": "bajele-dos-rayitas", "dicho": "Bájele dos rayitas", "significado": "Cálmese, no exagere, como bajarle el volumen.", "ejemplo": "Bájele dos rayitas, que tampoco es para tanto.", "region": "Todo el país" },
+  { "id": "embarrarla", "dicho": "Embarrarla", "significado": "Cometer un error, dañar una situación.", "ejemplo": "La embarré: mandé el chisme al grupo de la familia.", "region": "Todo el país" },
+  { "id": "bacano", "dicho": "Bacano", "significado": "Chévere, muy bueno. También se dice de una persona buena gente.", "ejemplo": "Qué bacano el concierto de anoche; y el amigo suyo es todo bacano.", "region": "Todo el país" },
+  { "id": "hacer-la-segunda", "dicho": "Hacer la segunda", "significado": "Ayudar o apoyar a alguien en algo.", "ejemplo": "Hágame la segunda con la mudanza y le pago con almuerzo.", "region": "Todo el país" },
+  { "id": "sacar-el-cuerpo", "dicho": "Sacar el cuerpo", "significado": "Evadir una responsabilidad o un compromiso.", "ejemplo": "Cada vez que hay que lavar los platos, saca el cuerpo.", "region": "Todo el país" },
+  { "id": "rajarse", "dicho": "Rajarse", "significado": "Perder un examen o una materia.", "ejemplo": "Me rajé en cálculo y me toca verla otra vez.", "region": "Todo el país" },
+  { "id": "dar-la-mano-y-coger-el-codo", "dicho": "Le dan la mano y coge el codo", "significado": "Aprovecharse de la confianza o la ayuda que le dan.", "ejemplo": "Le presté el carro un día y ya lo quiere toda la semana: le dan la mano y coge el codo.", "region": "Todo el país" }
 ]
