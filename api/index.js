@@ -9,7 +9,8 @@ const recursos = Object.fromEntries(
     .map((f) => [f.slice(0, -5), JSON.parse(readFileSync(join(DATA, f), 'utf8'))]),
 );
 
-const normalizar = (s) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+// Sin tildes ni mayúsculas, y espacio = guion = guion bajo: "Valle del Cauca" encuentra valle-del-cauca
+const normalizar = (s) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().replace(/[\s_-]+/g, ' ').trim();
 
 // Mismo item para todos durante el día, con el día contado en hora de Colombia (UTC-5).
 export function delDia(lista, fecha = new Date()) {

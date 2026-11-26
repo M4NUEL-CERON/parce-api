@@ -28,7 +28,7 @@ Las fotos de los platos son de Wikimedia Commons; cada plato trae su autor y lic
 | `GET /api/municipios` | Los 1.122 municipios y áreas no municipalizadas de la DIVIPOLA, con coordenadas y población 2026. El `id` es el código DANE: `/api/municipios/05001` |
 | `GET /api/rios` | Ríos principales: longitud, desembocadura, vertiente y departamentos que cruzan |
 | `GET /mapa/colombia.topo.json` | Fronteras de los departamentos y trazado de los ríos en TopoJSON (86 KB). Cada forma trae el `id` del departamento o río |
-| `GET /api/<recurso>?<campo>=valor` | Filtra por cualquier campo, sin importar tildes. Ej. `/api/platos?region=tolima`, `/api/municipios?departamento=boyaca&capital=true`. Si hay coincidencias exactas, solo trae esas: `?departamento=santander` no incluye Norte de Santander. Se combina con `?q=` |
+| `GET /api/<recurso>?<campo>=valor` | Filtra por cualquier campo, sin importar tildes ni mayúsculas, y con espacios o guiones (`Valle del Cauca` = `valle-del-cauca`). Ej. `/api/platos?region=tolima`, `/api/municipios?departamento=boyaca&capital=true`, `/api/municipios?departamento_codigo=19`. Si hay coincidencias exactas, solo trae esas: `?departamento=santander` no incluye Norte de Santander. Se combina con `?q=` |
 
 ```js
 const dicho = await (await fetch('https://parce-api.vercel.app/api/dichos/hoy')).json();

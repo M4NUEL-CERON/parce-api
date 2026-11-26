@@ -120,7 +120,7 @@ const departamentos = Object.keys(popDep).sort().map((c) => {
 });
 const capitales = new Set(Object.keys(popDep).map(capitalDe));
 const municipios = divipola.map((m) => ({
-  id: m.cod_mpio, nombre: popMun[m.cod_mpio]?.nombre ?? m.nom_mpio, departamento: idDep(m.cod_dpto),
+  id: m.cod_mpio, nombre: popMun[m.cod_mpio]?.nombre ?? m.nom_mpio, departamento: idDep(m.cod_dpto), departamento_codigo: m.cod_dpto,
   tipo: m.tipo_municipio, capital: capitales.has(m.cod_mpio),
   lat: +m.latitud.replace(',', '.'), lon: +m.longitud.replace(',', '.'),
   poblacion_2026: popMun[m.cod_mpio]?.pob ?? null,

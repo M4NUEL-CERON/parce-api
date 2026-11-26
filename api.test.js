@@ -26,6 +26,14 @@ test('coincidencia exacta manda sobre la parcial', () => {
   assert.ok(santander.every((m) => m.departamento === 'santander'));
   assert.ok(llamar('/api/municipios?departamento=santan').body.some((m) => m.departamento === 'norte-de-santander'));
 });
+test('el nombre se puede escribir con espacios, tildes o el código DANE', () => {
+  assert.equal(llamar('/api/municipios?departamento=Valle%20del%20Cauca').body.length, 42);
+  assert.equal(llamar('/api/municipios?departamento=norte%20de%20santander').body.length, 40);
+  assert.equal(llamar('/api/municipios?departamento=San%20Andr%C3%A9s').body.length, 2);
+  assert.equal(llamar('/api/municipios?departamento=cauca').body.length, 42); // no se cuela el Valle del Cauca
+  assert.equal(llamar('/api/municipios?departamento_codigo=19').body.length, 42);
+  assert.ok(llamar('/api/dichos?q=dar%20papaya').body.some((d) => d.id === 'no-dar-papaya'));
+});
 test('geografía: departamentos, municipios, ríos y mapa encajan', () => {
   const deptos = llamar('/api/departamentos').body;
   const munis = llamar('/api/municipios').body;
