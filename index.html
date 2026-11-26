@@ -126,7 +126,12 @@
 
     .ficha { background: var(--card); border: 3px solid var(--fg); border-radius: 24px; padding: 26px; box-shadow: var(--sombra); }
     .ficha label { display: block; font-weight: 800; font-size: .9rem; margin-bottom: 8px; }
-    .ficha select { width: 100%; font: inherit; padding: 10px 16px; border: 2.5px solid var(--fg); border-radius: 999px; background: var(--card); color: var(--fg); margin-bottom: 22px; }
+    /* Flecha propia: la nativa queda pegada al borde y cambia según el navegador */
+    .ficha select { width: 100%; font: inherit; padding: 10px 52px 10px 18px; border: 2.5px solid var(--fg); border-radius: 999px; color: var(--fg); margin-bottom: 22px; cursor: pointer; text-overflow: ellipsis;
+      appearance: none; -webkit-appearance: none; background: var(--card) var(--flecha) no-repeat right 20px center / 14px 9px; }
+    :root { --flecha: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 9'%3E%3Cpath d='M1.5 1.5 7 7l5.5-5.5' fill='none' stroke='%231a1714' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+    @media (prefers-color-scheme: dark) { :root { --flecha: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 9'%3E%3Cpath d='M1.5 1.5 7 7l5.5-5.5' fill='none' stroke='%23f6efe0' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); } }
+    .ficha select option { background: var(--card); color: var(--fg); }
     .ficha select:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
     .ficha h3 { font-size: clamp(1.7rem, 3vw, 2.2rem); line-height: 1.05; margin: 10px 0 4px; text-wrap: balance; }
     .ficha .capital { color: var(--muted); margin: 0 0 20px; }
