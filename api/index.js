@@ -35,8 +35,11 @@ export default function handler(req, res) {
     for (const [campo, valor] of url.searchParams) {
       if (campo === 'ruta') continue;
       const v = normalizar(valor);
-      // ?q= busca en todo el item; cualquier otro parámetro filtra por ese campo (ej. ?region=tolima)
-      resultado = resultado.filter((x) => normalizar(campo === 'q' ? JSON.stringify(x) : String(x[campo] ?? '')).includes(v));
+      const texto = (x) => normalizar(campo === 'q' ? JSON.stringify(x) : String(x[campo] ?? ''));
+      // ?q= busca en todo el item; cualquier otro parámetro filtra por ese campo (ej. ?region=tolima).
+      // Si hay coincidencias exactas mandan: ?departamento=santander no trae Norte de Santander.
+      const exactos = campo === 'q' ? [] : resultado.filter((x) => texto(x) === v);
+      resultado = exactos.length ? exactos : resultado.filter((x) => texto(x).includes(v));
     }
     return res.status(200).json(resultado);
   }

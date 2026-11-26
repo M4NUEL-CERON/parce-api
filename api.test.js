@@ -20,6 +20,27 @@ test('filtra por campo', () => {
   assert.deepEqual(llamar('/api/dichos?region=antioquia').body.map((d) => d.id), ['hagale-pues', 'ave-maria-pues', 'que-mas-pues', 'que-charro']);
 });
 test('cada dicho tiene región', () => assert.ok(llamar('/api/dichos').body.every((d) => d.region)));
+test('coincidencia exacta manda sobre la parcial', () => {
+  const santander = llamar('/api/municipios?departamento=santander').body;
+  assert.equal(santander.length, 87);
+  assert.ok(santander.every((m) => m.departamento === 'santander'));
+  assert.ok(llamar('/api/municipios?departamento=santan').body.some((m) => m.departamento === 'norte-de-santander'));
+});
+test('geografía: departamentos, municipios, ríos y mapa encajan', () => {
+  const deptos = llamar('/api/departamentos').body;
+  const munis = llamar('/api/municipios').body;
+  const rios = llamar('/api/rios').body;
+  assert.equal(deptos.length, 33);
+  assert.equal(llamar('/api/departamentos/cundinamarca').body.capital_codigo, '11001'); // capital: Bogotá, no 25001
+  assert.equal(deptos.reduce((s, d) => s + d.poblacion_2026, 0), munis.reduce((s, m) => s + m.poblacion_2026, 0));
+  const ids = new Set(deptos.map((d) => d.id));
+  assert.ok(munis.every((m) => ids.has(m.departamento)));
+  assert.ok(deptos.every((d) => munis.some((m) => m.id === d.capital_codigo && m.capital)));
+  assert.ok(rios.every((r) => r.departamentos.every((d) => ids.has(d) && deptos.find((x) => x.id === d).rios.includes(r.id))));
+  const mapa = JSON.parse(readFileSync('mapa/colombia.topo.json', 'utf8'));
+  assert.deepEqual(new Set(mapa.objects.departamentos.geometries.map((g) => g.properties.id)), ids);
+  assert.deepEqual(new Set(mapa.objects.rios.geometries.map((g) => g.properties.id)), new Set(rios.map((r) => r.id)));
+});
 test('hoy, random y 404', () => {
   assert.ok(llamar('/api/dichos/hoy').body.id);
   assert.ok(llamar('/api/dichos/random').body.id);

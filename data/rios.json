@@ -1,0 +1,13 @@
+[
+  {"id":"magdalena","nombre":"Magdalena","longitud_km":1528,"desembocadura":"Mar Caribe","vertiente":"Caribe","departamentos":["bolivar","cesar","magdalena","atlantico","huila","tolima","cundinamarca","caldas","boyaca","antioquia","santander"]},
+  {"id":"cauca","nombre":"Cauca","longitud_km":965,"desembocadura":"Río Magdalena","vertiente":"Caribe","departamentos":["cauca","valle-del-cauca","risaralda","caldas","antioquia","bolivar","sucre"]},
+  {"id":"atrato","nombre":"Atrato","longitud_km":644,"desembocadura":"Golfo de Urabá","vertiente":"Caribe","departamentos":["choco","antioquia"]},
+  {"id":"mira","nombre":"Mira","longitud_km":400,"desembocadura":"Océano Pacífico","vertiente":"Pacífico","departamentos":["narino"]},
+  {"id":"meta","nombre":"Meta","longitud_km":1000,"desembocadura":"Río Orinoco","vertiente":"Orinoco","departamentos":["cundinamarca","meta","casanare","vichada","arauca"]},
+  {"id":"orinoco","nombre":"Orinoco","longitud_km":2140,"desembocadura":"Océano Atlántico","vertiente":"Orinoco","departamentos":["vichada"]},
+  {"id":"caqueta","nombre":"Caquetá","longitud_km":2820,"desembocadura":"Río Amazonas","vertiente":"Amazonas","departamentos":["cauca","putumayo","caqueta","amazonas"]},
+  {"id":"putumayo","nombre":"Putumayo","longitud_km":1610,"desembocadura":"Río Amazonas","vertiente":"Amazonas","departamentos":["putumayo","amazonas"]},
+  {"id":"amazonas","nombre":"Amazonas","longitud_km":6400,"desembocadura":"Océano Atlántico","vertiente":"Amazonas","departamentos":["amazonas"]},
+  {"id":"guaviare","nombre":"Guaviare","longitud_km":1497,"desembocadura":"Río Orinoco","vertiente":"Orinoco","departamentos":["meta","guaviare","vichada","guainia"]},
+  {"id":"vaupes","nombre":"Vaupés","longitud_km":1050,"desembocadura":"Río Negro","vertiente":"Amazonas","departamentos":["vaupes"]}
+]
