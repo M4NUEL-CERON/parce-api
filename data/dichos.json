@@ -97,5 +97,15 @@
   { "id": "hacer-la-segunda", "dicho": "Hacer la segunda", "significado": "Ayudar o apoyar a alguien en algo.", "ejemplo": "Hágame la segunda con la mudanza y le pago con almuerzo.", "region": "Todo el país" },
   { "id": "sacar-el-cuerpo", "dicho": "Sacar el cuerpo", "significado": "Evadir una responsabilidad o un compromiso.", "ejemplo": "Cada vez que hay que lavar los platos, saca el cuerpo.", "region": "Todo el país" },
   { "id": "rajarse", "dicho": "Rajarse", "significado": "Perder un examen o una materia.", "ejemplo": "Me rajé en cálculo y me toca verla otra vez.", "region": "Todo el país" },
-  { "id": "dar-la-mano-y-coger-el-codo", "dicho": "Le dan la mano y coge el codo", "significado": "Aprovecharse de la confianza o la ayuda que le dan.", "ejemplo": "Le presté el carro un día y ya lo quiere toda la semana: le dan la mano y coge el codo.", "region": "Todo el país" }
+  { "id": "dar-la-mano-y-coger-el-codo", "dicho": "Le dan la mano y coge el codo", "significado": "Aprovecharse de la confianza o la ayuda que le dan.", "ejemplo": "Le presté el carro un día y ya lo quiere toda la semana: le dan la mano y coge el codo.", "region": "Todo el país" },
+  { "id": "estar-pelado", "dicho": "Estar pelado", "significado": "No tener plata.", "ejemplo": "No puedo ir a la fiesta, estoy pelado hasta la quincena.", "region": "Todo el país" },
+  { "id": "a-caballo-regalado", "dicho": "A caballo regalado no se le mira el colmillo", "significado": "Lo que te regalan se recibe sin ponerle peros.", "ejemplo": "El celular es usado, pero a caballo regalado no se le mira el colmillo.", "region": "Todo el país" },
+  { "id": "echar-globos", "dicho": "Echar globos", "significado": "Quedarse pensando en otra cosa, distraído.", "ejemplo": "Le pregunté tres veces y nada, estaba echando globos.", "region": "Todo el país" },
+  { "id": "que-chimba", "dicho": "¡Qué chimba!", "significado": "Expresión de que algo es muy bueno o bonito. Es informal, mejor no decirlo en una reunión de trabajo.", "ejemplo": "¡Qué chimba de concierto, parce!", "region": "Todo el país" },
+  { "id": "dejar-metido", "dicho": "Dejar metido", "significado": "Dejar a alguien esperando o plantado.", "ejemplo": "Quedamos a las ocho y me dejó metido.", "region": "Todo el país" },
+  { "id": "paila", "dicho": "¡Paila!", "significado": "Qué mala suerte, ya no hay nada que hacer.", "ejemplo": "¿Se acabó el pan? Paila, toca desayunar arepa.", "region": "Todo el país" },
+  { "id": "caer-gordo", "dicho": "Caer gordo", "significado": "Que alguien le resulte antipático.", "ejemplo": "Ese man me cae gordo, siempre se cree más que todos.", "region": "Todo el país" },
+  { "id": "estar-en-la-inmunda", "dicho": "Estar en la inmunda", "significado": "Estar en una situación muy mala, sobre todo sin plata.", "ejemplo": "Después de pagar el arriendo quedé en la inmunda.", "region": "Todo el país" },
+  { "id": "hacer-la-gestion", "dicho": "Hacer la gestión", "significado": "Intentar algo o mover influencias para lograrlo.", "ejemplo": "No sé si nos dejen entrar, pero voy a hacer la gestión.", "region": "Todo el país" },
+  { "id": "ser-berraco", "dicho": "Ser berraco", "significado": "Ser muy capaz y valiente; estar berraco es estar muy enojado.", "ejemplo": "Mi abuela sacó adelante a seis hijos sola, una berraca.", "region": "Santander (santandereano)" }
 ]
